@@ -1,23 +1,32 @@
-.section__form {
+.projectFormContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 5;
   opacity: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.projectForm {
   position: relative;
-  top: -200px;
-  left: 20px;
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
   align-items: center;
+  width: 80vw !important;
   padding: 20px;
-  width: 300%;
-  height: 400px;
-  border: 1px solid grey;
   background-color: white;
-  margin-bottom: -400px;
-  display: none;
+  border-radius: 5px;
 }
 
-.section__form i {
+.projectForm i {
   position: absolute;
   top: 5px;
   right: 5px;
@@ -29,26 +38,26 @@
   transition: all 0.5s;
 }
 
-.section__form i:hover {
-  filter: brightness(80%);
+.projectForm i:hover {
+  filter: brightness(90%);
   transform: scale(1.05);
 }
 
-.section__form > h1 {
+.projectForm > h1 {
   font-size: 30px;
   color: rgb(83, 83, 83);
   margin-bottom: 5px;
 }
 
-.section__form > h2 {
+.projectForm > h2 {
   font-size: 20px;
   color: rgb(83, 83, 83);
   margin-bottom: 15px;
 }
 
-.section__form > textarea {
-  min-width: 100%;
-  max-width: 100%;
+.projectForm > textarea {
+  min-width: 70vw;
+  max-width: 70vw;
   min-height: 150px;
   max-height: 150px;
   color: rgb(83, 83, 83);
@@ -59,14 +68,14 @@
   font-family: "Roboto";
 }
 
-.section__form > p {
+.projectForm > p {
   color: rgb(83, 83, 83);
   font-size: 15px;
   font-weight: bold;
   margin-top: 5px;
 }
 
-.section__form > button {
+.projectForm > button {
   font-size: 18px;
   font-weight: bold;
   color: white;
@@ -82,12 +91,12 @@
   white-space: nowrap;
 }
 
-.section__form > button:hover {
-  filter: brightness(80%);
+.projectForm > button:hover {
+  filter: brightness(90%);
   transform: scale(1.01) !important;
 }
 
-.section__form > input {
+.projectForm > input {
   display: none;
 }
 
@@ -95,102 +104,106 @@
 @keyframes form__appear {
   from {
     opacity: 0;
-    top: -200px;
-    margin-bottom: -400px;
+    transform: translateY(-50px);
   }
   to {
     opacity: 1;
-    top: 0;
+    transform: translateY(0);
   }
 }
 
 @keyframes form__disappear {
   from {
     opacity: 1;
-    top: 0;
+    transform: translateY(0);
   }
   to {
     opacity: 0;
-    top: -200px;
-    margin-bottom: -400px;
+    transform: translateY(-50px);
   }
 }
 
 /* Media queries */
 
 @media screen and (min-width: 767px) {
-  .section__projectCard:nth-of-type(2n + 2) .section__form {
+  .section__projectCard:nth-of-type(2n + 2) .projectForm {
     left: -100%;
   }
 }
 
 @media screen and (min-width: 1110px) {
-  .section__projectCard:nth-of-type(3n + 2) .section__form {
+  .section__projectCard:nth-of-type(3n + 2) .projectForm {
     left: -100%;
   }
-  .section__projectCard:nth-of-type(3n + 3) .section__form {
+  .section__projectCard:nth-of-type(3n + 3) .projectForm {
     left: calc(-200% - 20px);
   }
 }
 
 @media only screen and (max-width: 1100px) {
-  .section__form {
+  .projectForm {
     width: calc(200% - 20px);
   }
 }
 
 @media only screen and (max-width: 767px) {
-  .section__form {
+  .projectForm {
     width: calc(100% - 40px);
   }
 }
 
 @media only screen and (max-width: 500px) {
-  .section__form > h1 {
+  .projectForm {
+    width: 95vw !important;
+  }
+
+  .projectForm > h1 {
     font-size: 20px;
   }
 
-  .section__form > h2 {
+  .projectForm > h2 {
     font-size: 18px;
   }
 
-  .section__form > textarea {
+  .projectForm > textarea {
+    max-width: 90vw;
+    min-width: 90vw;
     font-size: 15px;
   }
 
-  .section__form > p {
+  .projectForm > p {
     font-size: 15px;
   }
 
-  .section__form > button {
+  .projectForm > button {
     font-size: 15px;
     padding: 10px 30px;
   }
 }
 
 @media only screen and (max-width: 350px) {
-  .section__form {
+  .projectForm {
     width: 100%;
     left: 0;
   }
 
-  .section__form > h1 {
+  .projectForm > h1 {
     font-size: 16px;
   }
 
-  .section__form > h2 {
+  .projectForm > h2 {
     font-size: 14px;
   }
 
-  .section__form > textarea {
+  .projectForm > textarea {
     font-size: 13px;
   }
 
-  .section__form > p {
+  .projectForm > p {
     font-size: 13px;
   }
 
-  .section__form > button {
+  .projectForm > button {
     font-size: 13px;
     padding: 10px;
   }

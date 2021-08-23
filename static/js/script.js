@@ -5,6 +5,7 @@ const profileMenu = document.querySelector(".profileMenu");
 const nav = document.querySelector("nav");
 const navScroll = document.querySelector(".nav__onScroll");
 const navDropdown = document.querySelector(".nav__dropdown");
+const projectForm = document.querySelector(".projectForm");
 
 // scroll events
 const scrollToTop = () => {
@@ -92,23 +93,22 @@ $cell.find('.js-collapser').on("click", function () {
     var $thisCell = $(this).closest('.section__projectCard');
     $thisCell.removeClass('is-expanded').addClass('is-collapsed');
     $cell.not($thisCell).removeClass('is-inactive');
-    // remove form
-    $thisCell.children().last().hide()
 });
 
 // form handling
-const openForm = (e) => {
-    const form = e.target.parentElement.nextElementSibling;
-    form.style.display = "flex";
-    form.style.animation = "form__appear 0.5s ease-out 1 forwards";
-    form.style.zIndex = "3";
-    window.scrollBy(0, 400);
+const openForm = () => {
+    projectForm.style.display = "flex";
+    projectForm.parentElement.style.display = "grid";
+    projectForm.style.animation = "form__appear 0.3s ease-out 1 forwards";
+    projectForm.parentElement.style.opacity = "1";
 };
-const closeForm = (e) => {
-    const form = e.target.parentElement;
-    form.style.animation = "form__disappear 0.5s ease-out 1 forwards";
-    setTimeout(() => form.style.display = "none", 500);
-    window.scrollBy(0, -400);
+
+const closeForm = () => {
+    projectForm.style.animation = "form__disappear 0.3s ease-out 1 forwards";
+    setTimeout(() => {
+        projectForm.style.display = "none";
+        projectForm.parentElement.style.display = "none";
+    }, 300);
 };
 
 // profile menu handling
@@ -135,4 +135,16 @@ const uploadFile = (e) => {
 };
 const changedFile = (e) => {
     e.target.nextElementSibling.innerText = "Uploaded: \"" + truncate(e.target.files[0].name, 20) + "\"";
+};
+
+// Bookmark handling
+const bookmarkHandler = (e) => {
+    if (e.target.classList.contains("fas")) {
+        e.target.classList.remove("fas");
+        e.target.classList.add("far");
+    }
+    else {
+        e.target.classList.remove("far");
+        e.target.classList.add("fas");
+    }
 };
