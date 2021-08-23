@@ -111,6 +111,8 @@ $cell.find('.js-collapser').on("click", function () {
     var $thisCell = $(this).closest('.section__projectCard');
     $thisCell.removeClass('is-expanded').addClass('is-collapsed');
     $cell.not($thisCell).removeClass('is-inactive');
+    // remove form
+    $thisCell.children().last().hide()
 });
 
 // form handling
