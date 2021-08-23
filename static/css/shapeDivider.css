@@ -1,0 +1,21 @@
+.shapeDivider {
+  position: absolute;
+  bottom: -110px;
+  left: 0;
+  width: 100vw;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.shapeDivider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  width: 120vw;
+  height: 115px;
+  transform: rotateY(180deg);
+}
+
+.shapeDivider .shape-fill {
+  fill: #ffffff;
+}

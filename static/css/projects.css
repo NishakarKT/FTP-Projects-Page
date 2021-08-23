@@ -1,0 +1,330 @@
+.section__projects {
+  display: flex;
+  flex-flow: row wrap;
+  width: 1111px;
+}
+
+.section__projectCard {
+  position: relative;
+  width: 350px;
+  border-radius: 5px;
+  margin: 10px;
+  margin-bottom: 5px;
+  justify-self: flex-start;
+  transition: filter 0.5s;
+}
+
+.section__projectCard:nth-of-type(3n + 2) .section__projectDetails {
+  /* justify-self: flex-start; */
+}
+
+.section__projectCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 215px;
+  filter: brightness(60%);
+  background: url("/images/iit_kgp.jpg") no-repeat center center / cover;
+  border-radius: 5px;
+}
+
+.section__projectCardInner {
+  height: 210px;
+  width: 100%;
+  padding: 20px 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  cursor: pointer;
+  background-color: transparent;
+  color: #eceef1;
+  font-size: 1.5em;
+  transition: all 0.5s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 2;
+}
+
+.section__projectCardInner:hover {
+  background-color: rgba(0, 0, 0, 0.35);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 15px,
+    rgba(0, 0, 0, 0.12) 0px 5px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.section__projectCardInner:after {
+  transition: all 0.5s ease-in-out;
+}
+
+.section__projectCardInner > hr {
+  height: 2px;
+  background-color: white !important;
+  outline: none;
+  border: none;
+  margin-bottom: 5px;
+}
+
+.section__projectCardInner > h1 {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.section__projectCardInner > h2 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.section__projectCardInner > h2 > i {
+  font-size: 15px;
+  margin-right: 10px;
+}
+
+.section__projectCardInner > h3 {
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 15px;
+}
+
+.section__projectCardInner > h3 > i {
+  font-size: 15px;
+  margin-right: 10px;
+}
+
+.section__projectCardInner .fa {
+  width: 100%;
+  margin-top: 0.25em;
+}
+
+.section__projectDetails {
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  color: #eceef1;
+  font-size: 1.5em;
+  border: 2px solid white;
+  border-radius: 5px;
+  z-index: 2;
+}
+
+.section__projectDetails::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: brightness(20%);
+  background: url("/images/iit_kgp.jpg") no-repeat center center / cover;
+  border-radius: 5px;
+  z-index: -1;
+}
+
+.section__projectDetails .fa {
+  font-size: 0.75em;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.section__projectCard.is-collapsed .section__projectCardInner:after {
+  content: "";
+  opacity: 0;
+}
+
+.section__projectCard.is-collapsed .section__projectDetails {
+  max-height: 0;
+  min-height: 0;
+  overflow: hidden;
+  margin-top: 0;
+  opacity: 0;
+}
+
+.section__projectCard.is-expanded .section__projectCardInner:after {
+  content: "";
+  opacity: 1;
+  display: block;
+  height: 0;
+  width: 0;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 15px);
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid white;
+}
+
+.section__projectCard.is-expanded .section__projectCardInner .fa:before {
+  content: "\f115";
+}
+
+.section__projectCard.is-expanded .section__projectDetails {
+  max-height: 1000px;
+  min-height: 200px;
+  overflow: visible;
+  padding: 20px;
+  opacity: 1;
+}
+
+.section__projectCard.is-expanded:hover .section__projectCardInner {
+  transform: scale(1);
+}
+
+.section__projectCard.is-inactive .section__projectCardInner {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.section__projectCard.is-inactive:hover .section__projectCardInner {
+  background-color: #949fb0;
+  transform: scale(1);
+}
+
+/* Project Details */
+.section__projectDetails > h1 {
+  font-size: 30px;
+  font-weight: 500;
+  align-self: center;
+  margin-bottom: 5px;
+  white-space: nowrap;
+}
+
+.section__projectDetails > p {
+  display: flex;
+  font-size: 18px;
+  margin-bottom: 10px;
+  align-items: flex-start;
+  word-break: break-all;
+}
+
+.section__projectDetails > p > b {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.section__projectDetails > p > b > i {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.section__projectDetails button {
+  font-size: 18px;
+  font-weight: bold;
+  color: #584bfb;
+  background-color: white;
+  align-self: flex-end;
+  padding: 10px 50px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.5s;
+  margin-top: 10px;
+}
+
+.section__projectDetails button:hover {
+  filter: brightness(90%);
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 1110px) {
+  .section__projects {
+    width: calc(100vw - 40px);
+  }
+  .section__projectCard {
+    width: calc((100vw / 2) - 40px);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .section__projectCard {
+    width: calc(100vw - 20px);
+  }
+  .section__projectDetails > p {
+    display: block;
+    margin-top: 10px;
+  }
+  .section__projectDetails > button {
+    align-self: center;
+  }
+}
+
+@media screen and (min-width: 1110px) {
+  .section__projectCard:nth-of-type(3n + 2) .section__projectDetails {
+    margin-left: calc(-100% - 20px);
+  }
+  .section__projectCard:nth-of-type(3n + 3) .section__projectDetails {
+    margin-left: calc(-200% - 40px);
+  }
+  .section__projectCard:nth-of-type(3n + 4) {
+    clear: left;
+  }
+  .section__projectDetails {
+    width: calc(300% + 40px);
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1110px) {
+  .section__projectCard:nth-of-type(2n + 2) .section__projectDetails {
+    margin-left: calc(-100% - 20px);
+  }
+  .section__projectCard:nth-of-type(2n + 3) {
+    clear: left;
+  }
+  .section__projectDetails {
+    width: calc(200% + 20px);
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .section__projectDetails > h1 {
+    font-size: 20px;
+  }
+
+  .section__projectDetails > p {
+    font-size: 15px;
+  }
+
+  .section__projectDetails > p > b {
+    font-size: 15px;
+  }
+
+  .section__projectDetails > p > b > i {
+    font-size: 15px;
+  }
+
+  .section__projectDetails button {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .section__projectCard {
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  .section__projectCardInner > h1 {
+    font-size: 20px;
+  }
+  .section__projectCardInner > h2 {
+    font-size: 15px;
+  }
+  .section__projectCardInner > h2 > i {
+    font-size: 15px;
+  }
+  .section__projectCardInner > h3 {
+    font-size: 12px;
+  }
+  .section__projectCardInner > h3 > i {
+    font-size: 12px;
+  }
+}

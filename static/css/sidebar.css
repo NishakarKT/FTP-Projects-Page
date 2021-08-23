@@ -1,0 +1,115 @@
+.sidebarContainer {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: sidebarContainer__appear 0.5s ease-out 1 forwards;
+}
+
+.sidebar {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  max-width: 350px;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  background: url("/images/bg_map.png") fixed no-repeat center center / cover,
+    rgba(0, 0, 0, 0) linear-gradient(135deg, #584bfb 0%, #45aafd 99%) repeat
+      scroll 0 0;
+  animation: sidebar__appear 0.5s ease-out 1 forwards;
+}
+
+.sidebar > img {
+  object-fit: contain;
+  width: 90%;
+  margin: 10px;
+  margin-bottom: 0;
+}
+
+.sidebarBtn {
+  color: #4572e2;
+  position: fixed;
+  font-size: 40px;
+  top: calc(50vh - 20px);
+  right: -15px;
+  transform: rotate(90deg);
+  cursor: grab;
+  transition: all 0.5s;
+  z-index: 2;
+}
+
+.sidebarBtn:hover {
+  transform: rotate(90deg) translateY(5px);
+}
+
+.sidebar__links {
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 5px;
+}
+
+.sidebar__links::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar__links > a {
+  width: 100%;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 15px 10px;
+  transition: all 0.5s;
+  border-radius: 5px;
+}
+
+.sidebar__links > a:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.sidebar__links > a > i {
+  width: 25px;
+  margin-right: 5px;
+}
+
+/* Animations */
+@keyframes sidebarContainer__appear {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes sidebarContainer__disappear {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes sidebar__appear {
+  0% {
+    opacity: 0;
+    transform: translateX(350px);
+  }
+  75% {
+    transform: translateX(-20px);
+  }
+  90% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes sidebar__disappear {
+  to {
+    transform: translateX(350px);
+  }
+}

@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/irc_icon.png" />
+    <title>International Relations Cell</title>
+    <!-- fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <!-- styles -->
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="stylesheet" href="static/css/floatingBtn.css" />
+    <link rel="stylesheet" href="static/css/profileMenu.css" />
+    <link rel="stylesheet" href="static/css/avatar.css" />
+    <link rel="stylesheet" href="static/css/nav.css" />
+    <link rel="stylesheet" href="static/css/sidebar.css" />
+    <link rel="stylesheet" href="static/css/section.css" />
+    <link rel="stylesheet" href="static/css/form.css" />
+    <link rel="stylesheet" href="static/css/projects.css" />
+    <link rel="stylesheet" href="static/css/shapeDivider.css" />
+    <link rel="stylesheet" href="static/css/footer.css" />
+    <!-- jquery  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <i class="fas fa-arrow-up scrollToTopBtn" tabindex="0" onclick="scrollToTop()"></i>
+    <i class="fas fa-user-tie profileBtn" tabindex="0" onclick="openProfileMenu()"></i>
+    <i class="fas fa-bookmark sidebarBtn" onclick="openSidebar()"></i>
+
+    <div class="profileMenu profileMenuInactive">
+        <a href="#">
+            <i class="fas fa-user-tie"></i>
+            <span>Profile</span>
+        </a>
+        <a href="#">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Sign out</span>
+        </a>
+    </div>
+
+    <nav>
+        <a href="#" class="nav__left"></a>
+        <div class="nav__mid">
+            <a href="#" class="nav__link nav__activeLink">Home</a>
+            <a href="#" class="nav__link">About Us</a>
+            <a href="#" class="nav__link">Testimonials</a>
+            <a href="#" class="nav__link">F.A.Q</a>
+            <a href="#" class="nav__link">Contact Us</a>
+            <i class="far fa-bell"></i>
+            <div class="nav__avatar">
+                <img src="/images/iit_kgp.jpg" alt="" />
+                <span>user's first name</span>
+            </div>
+        </div>
+        <div class="nav__right">
+            <i class="far fa-bell"></i>
+            <i class="fas fa-bars" onclick="dropdownHandler()"></i>
+        </div>
+    </nav>
+    <nav class="nav__onScroll">
+        <a href="#" class="nav__left"></a>
+        <div class="nav__mid">
+            <a href="#" class="nav__link nav__activeLink">Home</a>
+            <a href="#" class="nav__link">About Us</a>
+            <a href="#" class="nav__link">Testimonials</a>
+            <a href="#" class="nav__link">F.A.Q</a>
+            <a href="#" class="nav__link">Contact Us</a>
+            <i class="far fa-bell"></i>
+            <div class="nav__avatar">
+                <img src="/images/iit_kgp.jpg" alt="" />
+                <span>user's first name</span>
+            </div>
+        </div>
+        <div class="nav__right">
+            <i class="far fa-bell"></i>
+            <i class="fas fa-bars" onclick="dropdownHandler()"></i>
+        </div>
+    </nav>
+
+    <div class="nav__dropdown" onblur="dropdownHandler()" tabindex="0">
+        <a href="#" class="nav__menuItem nav__activeMenuItem">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#" class="nav__menuItem">
+            <i class="fas fa-users"></i>
+            <span>About Us</span>
+        </a>
+        <a href="#" class="nav__menuItem">
+            <i class="fas fa-comment-dots"></i>
+            <span>Testimonials</span>
+        </a>
+        <a href="#" class="nav__menuItem">
+            <i class="fas fa-question"></i>
+            <span>F.A.Q</span>
+        </a>
+        <a href="#" class="nav__menuItem">
+            <i class="fas fa-envelope-open-text"></i>
+            <span>Contact Us</span>
+        </a>
+        <a href="#" class="nav__menuItem">
+            <i class="fas fa-angle-double-right"></i>
+            <span>More</span>
+        </a>
+    </div>
+
+    <aside class="sidebarContainer" onclick="closeSidebar()">
+        <div class="sidebar">
+            <img src="/images/irc_logo.png" alt="" />
+            <div class="sidebar__links">
+                <a href="#"><i class="fas fa-graduation-cap"></i>Scholarships</a>
+                <a href="#"><i class="fas fa-graduation-cap"></i>Scholarships</a>
+                <a href="#"><i class="fas fa-graduation-cap"></i>Scholarships</a>
+                <a href="#"><i class="fas fa-graduation-cap"></i>Scholarships</a>
+                <a href="#"><i class="fas fa-graduation-cap"></i>Scholarships</a>
+                <a href="#"><i class="fas fa-arrow-left"></i>Back</a>
+            </div>
+        </div>
+    </aside>
+
+    <section>
+        <h1><i class="fas fa-project-diagram"></i>Projects<i class="fas fa-project-diagram"
+                style="transform: rotate3d(0,1,0,180deg);"></i></h1>
+        <div class="section__projects">
+            <div class="section__projectCard [ is-collapsed ]">
+                <div class="section__projectCardInner [ js-expander ]">
+                    <h1>Project Name</h1>
+                    <hr style="width: 25%;" />
+                    <hr style="width: 50%;" />
+                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
+                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
+                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close [ js-collapser ]"></i>
+                    <h1>Project Details</h1>
+                    <p><b><i class="fas fa-file-signature"></i></i>Name: </b>Project Name</p>
+                    <p><b><i class="fas fa-university"></i></i>University: </b>Indian Institue Of Technology, Kharagpur
+                    </p>
+                    <p><b><i class="fas fa-calendar-day"></i></i>Date: </b>Jan 1, 2022</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details: </b>Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Beatae hic harum
+                        quod quo eum, laudantium, unde architecto ullam dolorum et fuga est vitae, consectetur
+                        dolores. Corrupti placeat dicta laboriosam tempore itaque quo adipisci esse in libero
+                        aliquam eos perferendis commodi ut, exercitationem architecto nesciunt hic? Reprehenderit
+                        dignissimos minima sit ratione?</p>
+                    <p><b><i class="fas fa-calendar-alt"></i></i>Duration: </b>Lorem, ipsum dolor.</p>
+                    <p><b><i class="fas fa-puzzle-piece"></i>Pre-requisite: </b>Lorem ipsum dolor sit amet consectetur,
+                        adipisicinelit.Exercitationem,sapiente?
+                    </p>
+                    <p><b><i class="fas fa-dollar-sign"></i>Stipend: </b>100000</p>
+                    <button class="popup__applyBtn" onclick="openForm(event)">Apply</button>
+                </div>
+                <form class="section__form">
+                    <i class="fa fa-close" onclick="closeForm(event)"></i>
+                    <h1>Project Name</h1>
+                    <h2>Indian Institute of Technology, Kharagpur</h2>
+                    <textarea type="text"
+                        placeholder="Write a statement of importance of the proposed research to your future in 250 words."></textarea>
+                    <input type="file" class="section__uploadFileInput" onchange="changedFile(event)" />
+                    <button class="section__uploadFileBtn" onclick="uploadFile(event)">Apply
+                        with a different
+                        CV</button>
+                    <p>(optional)</p>
+                    <button>Submit</button>
+                </form>
+            </div>
+            <div class="section__projectCard [ is-collapsed ]">
+                <div class="section__projectCardInner [ js-expander ]">
+                    <h1>Project Name</h1>
+                    <hr style="width: 25%;" />
+                    <hr style="width: 50%;" />
+                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
+                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
+                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close [ js-collapser ]"></i>
+                    <h1>Project Details</h1>
+                    <p><b><i class="fas fa-file-signature"></i></i>Name: </b>Project Name</p>
+                    <p><b><i class="fas fa-university"></i></i>University: </b>Indian Institue Of Technology, Kharagpur
+                    </p>
+                    <p><b><i class="fas fa-calendar-day"></i></i>Date: </b>Jan 1, 2022</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details: </b>Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Beatae hic harum
+                        quod quo eum, laudantium, unde architecto ullam dolorum et fuga est vitae, consectetur
+                        dolores. Corrupti placeat dicta laboriosam tempore itaque quo adipisci esse in libero
+                        aliquam eos perferendis commodi ut, exercitationem architecto nesciunt hic? Reprehenderit
+                        dignissimos minima sit ratione?</p>
+                    <p><b><i class="fas fa-calendar-alt"></i></i>Duration: </b>Lorem, ipsum dolor.</p>
+                    <p><b><i class="fas fa-puzzle-piece"></i>Pre-requisite: </b>Lorem ipsum dolor sit amet consectetur,
+                        adipisicinelit.Exercitationem,sapiente?
+                    </p>
+                    <p><b><i class="fas fa-dollar-sign"></i>Stipend: </b>100000</p>
+                    <button class="popup__applyBtn" onclick="openForm(event)">Apply</button>
+                </div>
+                <form class="section__form">
+                    <i class="fa fa-close" onclick="closeForm(event)"></i>
+                    <h1>Project Name</h1>
+                    <h2>Indian Institute of Technology, Kharagpur</h2>
+                    <textarea type="text"
+                        placeholder="Write a statement of importance of the proposed research to your future in 250 words."></textarea>
+                    <input type="file" class="section__uploadFileInput" onchange="changedFile(event)" />
+                    <button class="section__uploadFileBtn" onclick="uploadFile(event)">Apply
+                        with a different
+                        CV</button>
+                    <p>(optional)</p>
+                    <button>Submit</button>
+                </form>
+            </div>
+            <div class="section__projectCard [ is-collapsed ]">
+                <div class="section__projectCardInner [ js-expander ]">
+                    <h1>Project Name</h1>
+                    <hr style="width: 25%;" />
+                    <hr style="width: 50%;" />
+                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
+                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
+                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close [ js-collapser ]"></i>
+                    <h1>Project Details</h1>
+                    <p><b><i class="fas fa-file-signature"></i></i>Name: </b>Project Name</p>
+                    <p><b><i class="fas fa-university"></i></i>University: </b>Indian Institue Of Technology, Kharagpur
+                    </p>
+                    <p><b><i class="fas fa-calendar-day"></i></i>Date: </b>Jan 1, 2022</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details: </b>Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Beatae hic harum
+                        quod quo eum, laudantium, unde architecto ullam dolorum et fuga est vitae, consectetur
+                        dolores. Corrupti placeat dicta laboriosam tempore itaque quo adipisci esse in libero
+                        aliquam eos perferendis commodi ut, exercitationem architecto nesciunt hic? Reprehenderit
+                        dignissimos minima sit ratione?</p>
+                    <p><b><i class="fas fa-calendar-alt"></i></i>Duration: </b>Lorem, ipsum dolor.</p>
+                    <p><b><i class="fas fa-puzzle-piece"></i>Pre-requisite: </b>Lorem ipsum dolor sit amet consectetur,
+                        adipisicinelit.Exercitationem,sapiente?
+                    </p>
+                    <p><b><i class="fas fa-dollar-sign"></i>Stipend: </b>100000</p>
+                    <button class="popup__applyBtn" onclick="openForm(event)">Apply</button>
+                </div>
+                <form class="section__form">
+                    <i class="fa fa-close" onclick="closeForm(event)"></i>
+                    <h1>Project Name</h1>
+                    <h2>Indian Institute of Technology, Kharagpur</h2>
+                    <textarea type="text"
+                        placeholder="Write a statement of importance of the proposed research to your future in 250 words."></textarea>
+                    <input type="file" class="section__uploadFileInput" onchange="changedFile(event)" />
+                    <button class="section__uploadFileBtn" onclick="uploadFile(event)">Apply
+                        with a different
+                        CV</button>
+                    <p>(optional)</p>
+                    <button>Submit</button>
+                </form>
+            </div>
+            <div class="section__projectCard [ is-collapsed ]">
+                <div class="section__projectCardInner [ js-expander ]">
+                    <h1>Project Name</h1>
+                    <hr style="width: 25%;" />
+                    <hr style="width: 50%;" />
+                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
+                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
+                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close [ js-collapser ]"></i>
+                    <h1>Project Details</h1>
+                    <p><b><i class="fas fa-file-signature"></i></i>Name: </b>Project Name</p>
+                    <p><b><i class="fas fa-university"></i></i>University: </b>Indian Institue Of Technology, Kharagpur
+                    </p>
+                    <p><b><i class="fas fa-calendar-day"></i></i>Date: </b>Jan 1, 2022</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details: </b>Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Beatae hic harum
+                        quod quo eum, laudantium, unde architecto ullam dolorum et fuga est vitae, consectetur
+                        dolores. Corrupti placeat dicta laboriosam tempore itaque quo adipisci esse in libero
+                        aliquam eos perferendis commodi ut, exercitationem architecto nesciunt hic? Reprehenderit
+                        dignissimos minima sit ratione?</p>
+                    <p><b><i class="fas fa-calendar-alt"></i></i>Duration: </b>Lorem, ipsum dolor.</p>
+                    <p><b><i class="fas fa-puzzle-piece"></i>Pre-requisite: </b>Lorem ipsum dolor sit amet consectetur,
+                        adipisicinelit.Exercitationem,sapiente?
+                    </p>
+                    <p><b><i class="fas fa-dollar-sign"></i>Stipend: </b>100000</p>
+                    <button class="popup__applyBtn" onclick="openForm(event)">Apply</button>
+                </div>
+                <form class="section__form">
+                    <i class="fa fa-close" onclick="closeForm(event)"></i>
+                    <h1>Project Name</h1>
+                    <h2>Indian Institute of Technology, Kharagpur</h2>
+                    <textarea type="text"
+                        placeholder="Write a statement of importance of the proposed research to your future in 250 words."></textarea>
+                    <input type="file" class="section__uploadFileInput" onchange="changedFile(event)" />
+                    <button class="section__uploadFileBtn" onclick="uploadFile(event)">Apply
+                        with a different
+                        CV</button>
+                    <p>(optional)</p>
+                    <button>Submit</button>
+                </form>
+            </div>
+            <div class="section__projectCard [ is-collapsed ]">
+                <div class="section__projectCardInner [ js-expander ]">
+                    <h1>Project Name</h1>
+                    <hr style="width: 25%;" />
+                    <hr style="width: 50%;" />
+                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
+                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
+                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close [ js-collapser ]"></i>
+                    <h1>Project Details</h1>
+                    <p><b><i class="fas fa-file-signature"></i></i>Name: </b>Project Name</p>
+                    <p><b><i class="fas fa-university"></i></i>University: </b>Indian Institue Of Technology, Kharagpur
+                    </p>
+                    <p><b><i class="fas fa-calendar-day"></i></i>Date: </b>Jan 1, 2022</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details: </b>Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Beatae hic harum
+                        quod quo eum, laudantium, unde architecto ullam dolorum et fuga est vitae, consectetur
+                        dolores. Corrupti placeat dicta laboriosam tempore itaque quo adipisci esse in libero
+                        aliquam eos perferendis commodi ut, exercitationem architecto nesciunt hic? Reprehenderit
+                        dignissimos minima sit ratione?</p>
+                    <p><b><i class="fas fa-calendar-alt"></i></i>Duration: </b>Lorem, ipsum dolor.</p>
+                    <p><b><i class="fas fa-puzzle-piece"></i>Pre-requisite: </b>Lorem ipsum dolor sit amet consectetur,
+                        adipisicinelit.Exercitationem,sapiente?
+                    </p>
+                    <p><b><i class="fas fa-dollar-sign"></i>Stipend: </b>100000</p>
+                    <button class="popup__applyBtn" onclick="openForm(event)">Apply</button>
+                </div>
+                <form class="section__form">
+                    <i class="fa fa-close" onclick="closeForm(event)"></i>
+                    <h1>Project Name</h1>
+                    <h2>Indian Institute of Technology, Kharagpur</h2>
+                    <textarea type="text"
+                        placeholder="Write a statement of importance of the proposed research to your future in 250 words."></textarea>
+                    <input type="file" class="section__uploadFileInput" onchange="changedFile(event)" />
+                    <button class="section__uploadFileBtn" onclick="uploadFile(event)">Apply
+                        with a different
+                        CV</button>
+                    <p>(optional)</p>
+                    <button>Submit</button>
+                </form>
+            </div>
+            <div class="section__projectCard [ is-collapsed ]">
+                <div class="section__projectCardInner [ js-expander ]">
+                    <h1>Project Name</h1>
+                    <hr style="width: 25%;" />
+                    <hr style="width: 50%;" />
+                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
+                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
+                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close [ js-collapser ]"></i>
+                    <h1>Project Details</h1>
+                    <p><b><i class="fas fa-file-signature"></i></i>Name: </b>Project Name</p>
+                    <p><b><i class="fas fa-university"></i></i>University: </b>Indian Institue Of Technology, Kharagpur
+                    </p>
+                    <p><b><i class="fas fa-calendar-day"></i></i>Date: </b>Jan 1, 2022</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details: </b>Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Beatae hic harum
+                        quod quo eum, laudantium, unde architecto ullam dolorum et fuga est vitae, consectetur
+                        dolores. Corrupti placeat dicta laboriosam tempore itaque quo adipisci esse in libero
+                        aliquam eos perferendis commodi ut, exercitationem architecto nesciunt hic? Reprehenderit
+                        dignissimos minima sit ratione?</p>
+                    <p><b><i class="fas fa-calendar-alt"></i></i>Duration: </b>Lorem, ipsum dolor.</p>
+                    <p><b><i class="fas fa-puzzle-piece"></i>Pre-requisite: </b>Lorem ipsum dolor sit amet consectetur,
+                        adipisicinelit.Exercitationem,sapiente?
+                    </p>
+                    <p><b><i class="fas fa-dollar-sign"></i>Stipend: </b>100000</p>
+                    <button class="popup__applyBtn" onclick="openForm(event)">Apply</button>
+                </div>
+                <form class="section__form">
+                    <i class="fa fa-close" onclick="closeForm(event)"></i>
+                    <h1>Project Name</h1>
+                    <h2>Indian Institute of Technology, Kharagpur</h2>
+                    <textarea type="text"
+                        placeholder="Write a statement of importance of the proposed research to your future in 250 words."></textarea>
+                    <input type="file" class="section__uploadFileInput" onchange="changedFile(event)" />
+                    <button class="section__uploadFileBtn" onclick="uploadFile(event)">Apply
+                        with a different
+                        CV</button>
+                    <p>(optional)</p>
+                    <button>Submit</button>
+                </form>
+            </div>
+            <div class="section__projectCard [ is-collapsed ]">
+                <div class="section__projectCardInner [ js-expander ]">
+                    <h1>Project Name</h1>
+                    <hr style="width: 25%;" />
+                    <hr style="width: 50%;" />
+                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
+                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
+                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close [ js-collapser ]"></i>
+                    <h1>Project Details</h1>
+                    <p><b><i class="fas fa-file-signature"></i></i>Name: </b>Project Name</p>
+                    <p><b><i class="fas fa-university"></i></i>University: </b>Indian Institue Of Technology, Kharagpur
+                    </p>
+                    <p><b><i class="fas fa-calendar-day"></i></i>Date: </b>Jan 1, 2022</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details: </b>Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Beatae hic harum
+                        quod quo eum, laudantium, unde architecto ullam dolorum et fuga est vitae, consectetur
+                        dolores. Corrupti placeat dicta laboriosam tempore itaque quo adipisci esse in libero
+                        aliquam eos perferendis commodi ut, exercitationem architecto nesciunt hic? Reprehenderit
+                        dignissimos minima sit ratione?</p>
+                    <p><b><i class="fas fa-calendar-alt"></i></i>Duration: </b>Lorem, ipsum dolor.</p>
+                    <p><b><i class="fas fa-puzzle-piece"></i>Pre-requisite: </b>Lorem ipsum dolor sit amet consectetur,
+                        adipisicinelit.Exercitationem,sapiente?
+                    </p>
+                    <p><b><i class="fas fa-dollar-sign"></i>Stipend: </b>100000</p>
+                    <button class="popup__applyBtn" onclick="openForm(event)">Apply</button>
+                </div>
+                <form class="section__form">
+                    <i class="fa fa-close" onclick="closeForm(event)"></i>
+                    <h1>Project Name</h1>
+                    <h2>Indian Institute of Technology, Kharagpur</h2>
+                    <textarea type="text"
+                        placeholder="Write a statement of importance of the proposed research to your future in 250 words."></textarea>
+                    <input type="file" class="section__uploadFileInput" onchange="changedFile(event)" />
+                    <button class="section__uploadFileBtn" onclick="uploadFile(event)">Apply
+                        with a different
+                        CV</button>
+                    <p>(optional)</p>
+                    <button>Submit</button>
+                </form>
+            </div>
+            <div class="section__projectCard [ is-collapsed ]">
+                <div class="section__projectCardInner [ js-expander ]">
+                    <h1>Project Name</h1>
+                    <hr style="width: 25%;" />
+                    <hr style="width: 50%;" />
+                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
+                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
+                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close [ js-collapser ]"></i>
+                    <h1>Project Details</h1>
+                    <p><b><i class="fas fa-file-signature"></i></i>Name: </b>Project Name</p>
+                    <p><b><i class="fas fa-university"></i></i>University: </b>Indian Institue Of Technology, Kharagpur
+                    </p>
+                    <p><b><i class="fas fa-calendar-day"></i></i>Date: </b>Jan 1, 2022</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details: </b>Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Beatae hic harum
+                        quod quo eum, laudantium, unde architecto ullam dolorum et fuga est vitae, consectetur
+                        dolores. Corrupti placeat dicta laboriosam tempore itaque quo adipisci esse in libero
+                        aliquam eos perferendis commodi ut, exercitationem architecto nesciunt hic? Reprehenderit
+                        dignissimos minima sit ratione?</p>
+                    <p><b><i class="fas fa-calendar-alt"></i></i>Duration: </b>Lorem, ipsum dolor.</p>
+                    <p><b><i class="fas fa-puzzle-piece"></i>Pre-requisite: </b>Lorem ipsum dolor sit amet consectetur,
+                        adipisicinelit.Exercitationem,sapiente?
+                    </p>
+                    <p><b><i class="fas fa-dollar-sign"></i>Stipend: </b>100000</p>
+                    <button class="popup__applyBtn" onclick="openForm(event)">Apply</button>
+                </div>
+                <form class="section__form">
+                    <i class="fa fa-close" onclick="closeForm(event)"></i>
+                    <h1>Project Name</h1>
+                    <h2>Indian Institute of Technology, Kharagpur</h2>
+                    <textarea type="text"
+                        placeholder="Write a statement of importance of the proposed research to your future in 250 words."></textarea>
+                    <input type="file" class="section__uploadFileInput" onchange="changedFile(event)" />
+                    <button class="section__uploadFileBtn" onclick="uploadFile(event)">Apply
+                        with a different
+                        CV</button>
+                    <p>(optional)</p>
+                    <button>Submit</button>
+                </form>
+            </div>
+        </div>
+        <h1><i class="fas fa-project-diagram"></i>Past Projects<i class="fas fa-project-diagram"
+                style="transform: rotate3d(0,1,0,180deg);"></i></h1>
+        <div class="section__projects">
+            <div class="section__projectCard [ is-collapsed ]">
+                <div class="section__projectCardInner [ js-expander ]">
+                    <h1>Project Name</h1>
+                    <hr style="width: 25%;" />
+                    <hr style="width: 50%;" />
+                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
+                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
+                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close [ js-collapser ]"></i>
+                    <h1>Project Details</h1>
+                    <p><b><i class="fas fa-file-signature"></i></i>Name: </b>Project Name</p>
+                    <p><b><i class="fas fa-university"></i></i>University: </b>Indian Institue Of Technology, Kharagpur
+                    </p>
+                    <p><b><i class="fas fa-calendar-day"></i></i>Date: </b>Jan 1, 2022</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details: </b>Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Beatae hic harum
+                        quod quo eum, laudantium, unde architecto ullam dolorum et fuga est vitae, consectetur
+                        dolores. Corrupti placeat dicta laboriosam tempore itaque quo adipisci esse in libero
+                        aliquam eos perferendis commodi ut, exercitationem architecto nesciunt hic? Reprehenderit
+                        dignissimos minima sit ratione?</p>
+                    <p><b><i class="fas fa-calendar-alt"></i></i>Duration: </b>Lorem, ipsum dolor.</p>
+                    <p><b><i class="fas fa-puzzle-piece"></i>Pre-requisite: </b>Lorem ipsum dolor sit amet consectetur,
+                        adipisicinelit.Exercitationem,sapiente?
+                    </p>
+                    <p><b><i class="fas fa-dollar-sign"></i>Stipend: </b>100000</p>
+                    <button class="popup__applyBtn" onclick="openForm(event)">Apply</button>
+                </div>
+                <form class="section__form">
+                    <i class="fa fa-close" onclick="closeForm(event)"></i>
+                    <h1>Project Name</h1>
+                    <h2>Indian Institute of Technology, Kharagpur</h2>
+                    <textarea type="text"
+                        placeholder="Write a statement of importance of the proposed research to your future in 250 words."></textarea>
+                    <input type="file" class="section__uploadFileInput" onchange="changedFile(event)" />
+                    <button class="section__uploadFileBtn" onclick="uploadFile(event)">Apply
+                        with a different
+                        CV</button>
+                    <p>(optional)</p>
+                    <button>Submit</button>
+                </form>
+            </div>
+            <div class="section__projectCard [ is-collapsed ]">
+                <div class="section__projectCardInner [ js-expander ]">
+                    <h1>Project Name</h1>
+                    <hr style="width: 25%;" />
+                    <hr style="width: 50%;" />
+                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
+                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
+                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close [ js-collapser ]"></i>
+                    <h1>Project Details</h1>
+                    <p><b><i class="fas fa-file-signature"></i></i>Name: </b>Project Name</p>
+                    <p><b><i class="fas fa-university"></i></i>University: </b>Indian Institue Of Technology, Kharagpur
+                    </p>
+                    <p><b><i class="fas fa-calendar-day"></i></i>Date: </b>Jan 1, 2022</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details: </b>Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Beatae hic harum
+                        quod quo eum, laudantium, unde architecto ullam dolorum et fuga est vitae, consectetur
+                        dolores. Corrupti placeat dicta laboriosam tempore itaque quo adipisci esse in libero
+                        aliquam eos perferendis commodi ut, exercitationem architecto nesciunt hic? Reprehenderit
+                        dignissimos minima sit ratione?</p>
+                    <p><b><i class="fas fa-calendar-alt"></i></i>Duration: </b>Lorem, ipsum dolor.</p>
+                    <p><b><i class="fas fa-puzzle-piece"></i>Pre-requisite: </b>Lorem ipsum dolor sit amet consectetur,
+                        adipisicinelit.Exercitationem,sapiente?
+                    </p>
+                    <p><b><i class="fas fa-dollar-sign"></i>Stipend: </b>100000</p>
+                    <button class="popup__applyBtn" onclick="openForm(event)">Apply</button>
+                </div>
+                <form class="section__form">
+                    <i class="fa fa-close" onclick="closeForm(event)"></i>
+                    <h1>Project Name</h1>
+                    <h2>Indian Institute of Technology, Kharagpur</h2>
+                    <textarea type="text"
+                        placeholder="Write a statement of importance of the proposed research to your future in 250 words."></textarea>
+                    <input type="file" class="section__uploadFileInput" onchange="changedFile(event)" />
+                    <button class="section__uploadFileBtn" onclick="uploadFile(event)">Apply
+                        with a different
+                        CV</button>
+                    <p>(optional)</p>
+                    <button>Submit</button>
+                </form>
+            </div>
+            <div class="section__projectCard [ is-collapsed ]">
+                <div class="section__projectCardInner [ js-expander ]">
+                    <h1>Project Name</h1>
+                    <hr style="width: 25%;" />
+                    <hr style="width: 50%;" />
+                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
+                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
+                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close [ js-collapser ]"></i>
+                    <h1>Project Details</h1>
+                    <p><b><i class="fas fa-file-signature"></i></i>Name: </b>Project Name</p>
+                    <p><b><i class="fas fa-university"></i></i>University: </b>Indian Institue Of Technology, Kharagpur
+                    </p>
+                    <p><b><i class="fas fa-calendar-day"></i></i>Date: </b>Jan 1, 2022</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details: </b>Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Beatae hic harum
+                        quod quo eum, laudantium, unde architecto ullam dolorum et fuga est vitae, consectetur
+                        dolores. Corrupti placeat dicta laboriosam tempore itaque quo adipisci esse in libero
+                        aliquam eos perferendis commodi ut, exercitationem architecto nesciunt hic? Reprehenderit
+                        dignissimos minima sit ratione?</p>
+                    <p><b><i class="fas fa-calendar-alt"></i></i>Duration: </b>Lorem, ipsum dolor.</p>
+                    <p><b><i class="fas fa-puzzle-piece"></i>Pre-requisite: </b>Lorem ipsum dolor sit amet consectetur,
+                        adipisicinelit.Exercitationem,sapiente?
+                    </p>
+                    <p><b><i class="fas fa-dollar-sign"></i>Stipend: </b>100000</p>
+                    <button class="popup__applyBtn" onclick="openForm(event)">Apply</button>
+                </div>
+                <form class="section__form">
+                    <i class="fa fa-close" onclick="closeForm(event)"></i>
+                    <h1>Project Name</h1>
+                    <h2>Indian Institute of Technology, Kharagpur</h2>
+                    <textarea type="text"
+                        placeholder="Write a statement of importance of the proposed research to your future in 250 words."></textarea>
+                    <input type="file" class="section__uploadFileInput" onchange="changedFile(event)" />
+                    <button class="section__uploadFileBtn" onclick="uploadFile(event)">Apply
+                        with a different
+                        CV</button>
+                    <p>(optional)</p>
+                    <button>Submit</button>
+                </form>
+            </div>
+            <div class="section__projectCard [ is-collapsed ]">
+                <div class="section__projectCardInner [ js-expander ]">
+                    <h1>Project Name</h1>
+                    <hr style="width: 25%;" />
+                    <hr style="width: 50%;" />
+                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
+                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
+                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close [ js-collapser ]"></i>
+                    <h1>Project Details</h1>
+                    <p><b><i class="fas fa-file-signature"></i></i>Name: </b>Project Name</p>
+                    <p><b><i class="fas fa-university"></i></i>University: </b>Indian Institue Of Technology, Kharagpur
+                    </p>
+                    <p><b><i class="fas fa-calendar-day"></i></i>Date: </b>Jan 1, 2022</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details: </b>Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Beatae hic harum
+                        quod quo eum, laudantium, unde architecto ullam dolorum et fuga est vitae, consectetur
+                        dolores. Corrupti placeat dicta laboriosam tempore itaque quo adipisci esse in libero
+                        aliquam eos perferendis commodi ut, exercitationem architecto nesciunt hic? Reprehenderit
+                        dignissimos minima sit ratione?</p>
+                    <p><b><i class="fas fa-calendar-alt"></i></i>Duration: </b>Lorem, ipsum dolor.</p>
+                    <p><b><i class="fas fa-puzzle-piece"></i>Pre-requisite: </b>Lorem ipsum dolor sit amet consectetur,
+                        adipisicinelit.Exercitationem,sapiente?
+                    </p>
+                    <p><b><i class="fas fa-dollar-sign"></i>Stipend: </b>100000</p>
+                    <button class="popup__applyBtn" onclick="openForm(event)">Apply</button>
+                </div>
+                <form class="section__form">
+                    <i class="fa fa-close" onclick="closeForm(event)"></i>
+                    <h1>Project Name</h1>
+                    <h2>Indian Institute of Technology, Kharagpur</h2>
+                    <textarea type="text"
+                        placeholder="Write a statement of importance of the proposed research to your future in 250 words."></textarea>
+                    <input type="file" class="section__uploadFileInput" onchange="changedFile(event)" />
+                    <button class="section__uploadFileBtn" onclick="uploadFile(event)">Apply
+                        with a different
+                        CV</button>
+                    <p>(optional)</p>
+                    <button>Submit</button>
+                </form>
+            </div>
+            <div class="section__projectCard [ is-collapsed ]">
+                <div class="section__projectCardInner [ js-expander ]">
+                    <h1>Project Name</h1>
+                    <hr style="width: 25%;" />
+                    <hr style="width: 50%;" />
+                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
+                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
+                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close [ js-collapser ]"></i>
+                    <h1>Project Details</h1>
+                    <p><b><i class="fas fa-file-signature"></i></i>Name: </b>Project Name</p>
+                    <p><b><i class="fas fa-university"></i></i>University: </b>Indian Institue Of Technology, Kharagpur
+                    </p>
+                    <p><b><i class="fas fa-calendar-day"></i></i>Date: </b>Jan 1, 2022</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details: </b>Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Beatae hic harum
+                        quod quo eum, laudantium, unde architecto ullam dolorum et fuga est vitae, consectetur
+                        dolores. Corrupti placeat dicta laboriosam tempore itaque quo adipisci esse in libero
+                        aliquam eos perferendis commodi ut, exercitationem architecto nesciunt hic? Reprehenderit
+                        dignissimos minima sit ratione?</p>
+                    <p><b><i class="fas fa-calendar-alt"></i></i>Duration: </b>Lorem, ipsum dolor.</p>
+                    <p><b><i class="fas fa-puzzle-piece"></i>Pre-requisite: </b>Lorem ipsum dolor sit amet consectetur,
+                        adipisicinelit.Exercitationem,sapiente?
+                    </p>
+                    <p><b><i class="fas fa-dollar-sign"></i>Stipend: </b>100000</p>
+                    <button class="popup__applyBtn" onclick="openForm(event)">Apply</button>
+                </div>
+                <form class="section__form">
+                    <i class="fa fa-close" onclick="closeForm(event)"></i>
+                    <h1>Project Name</h1>
+                    <h2>Indian Institute of Technology, Kharagpur</h2>
+                    <textarea type="text"
+                        placeholder="Write a statement of importance of the proposed research to your future in 250 words."></textarea>
+                    <input type="file" class="section__uploadFileInput" onchange="changedFile(event)" />
+                    <button class="section__uploadFileBtn" onclick="uploadFile(event)">Apply
+                        with a different
+                        CV</button>
+                    <p>(optional)</p>
+                    <button>Submit</button>
+                </form>
+            </div>
+            <div class="section__projectCard [ is-collapsed ]">
+                <div class="section__projectCardInner [ js-expander ]">
+                    <h1>Project Name</h1>
+                    <hr style="width: 25%;" />
+                    <hr style="width: 50%;" />
+                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
+                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
+                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close [ js-collapser ]"></i>
+                    <h1>Project Details</h1>
+                    <p><b><i class="fas fa-file-signature"></i></i>Name: </b>Project Name</p>
+                    <p><b><i class="fas fa-university"></i></i>University: </b>Indian Institue Of Technology, Kharagpur
+                    </p>
+                    <p><b><i class="fas fa-calendar-day"></i></i>Date: </b>Jan 1, 2022</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details: </b>Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Beatae hic harum
+                        quod quo eum, laudantium, unde architecto ullam dolorum et fuga est vitae, consectetur
+                        dolores. Corrupti placeat dicta laboriosam tempore itaque quo adipisci esse in libero
+                        aliquam eos perferendis commodi ut, exercitationem architecto nesciunt hic? Reprehenderit
+                        dignissimos minima sit ratione?</p>
+                    <p><b><i class="fas fa-calendar-alt"></i></i>Duration: </b>Lorem, ipsum dolor.</p>
+                    <p><b><i class="fas fa-puzzle-piece"></i>Pre-requisite: </b>Lorem ipsum dolor sit amet consectetur,
+                        adipisicinelit.Exercitationem,sapiente?
+                    </p>
+                    <p><b><i class="fas fa-dollar-sign"></i>Stipend: </b>100000</p>
+                    <button class="popup__applyBtn" onclick="openForm(event)">Apply</button>
+                </div>
+                <form class="section__form">
+                    <i class="fa fa-close" onclick="closeForm(event)"></i>
+                    <h1>Project Name</h1>
+                    <h2>Indian Institute of Technology, Kharagpur</h2>
+                    <textarea type="text"
+                        placeholder="Write a statement of importance of the proposed research to your future in 250 words."></textarea>
+                    <input type="file" class="section__uploadFileInput" onchange="changedFile(event)" />
+                    <button class="section__uploadFileBtn" onclick="uploadFile(event)">Apply
+                        with a different
+                        CV</button>
+                    <p>(optional)</p>
+                    <button>Submit</button>
+                </form>
+            </div>
+            <div class="section__projectCard [ is-collapsed ]">
+                <div class="section__projectCardInner [ js-expander ]">
+                    <h1>Project Name</h1>
+                    <hr style="width: 25%;" />
+                    <hr style="width: 50%;" />
+                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
+                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
+                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close [ js-collapser ]"></i>
+                    <h1>Project Details</h1>
+                    <p><b><i class="fas fa-file-signature"></i></i>Name: </b>Project Name</p>
+                    <p><b><i class="fas fa-university"></i></i>University: </b>Indian Institue Of Technology, Kharagpur
+                    </p>
+                    <p><b><i class="fas fa-calendar-day"></i></i>Date: </b>Jan 1, 2022</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details: </b>Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Beatae hic harum
+                        quod quo eum, laudantium, unde architecto ullam dolorum et fuga est vitae, consectetur
+                        dolores. Corrupti placeat dicta laboriosam tempore itaque quo adipisci esse in libero
+                        aliquam eos perferendis commodi ut, exercitationem architecto nesciunt hic? Reprehenderit
+                        dignissimos minima sit ratione?</p>
+                    <p><b><i class="fas fa-calendar-alt"></i></i>Duration: </b>Lorem, ipsum dolor.</p>
+                    <p><b><i class="fas fa-puzzle-piece"></i>Pre-requisite: </b>Lorem ipsum dolor sit amet consectetur,
+                        adipisicinelit.Exercitationem,sapiente?
+                    </p>
+                    <p><b><i class="fas fa-dollar-sign"></i>Stipend: </b>100000</p>
+                    <button class="popup__applyBtn" onclick="openForm(event)">Apply</button>
+                </div>
+                <form class="section__form">
+                    <i class="fa fa-close" onclick="closeForm(event)"></i>
+                    <h1>Project Name</h1>
+                    <h2>Indian Institute of Technology, Kharagpur</h2>
+                    <textarea type="text"
+                        placeholder="Write a statement of importance of the proposed research to your future in 250 words."></textarea>
+                    <input type="file" class="section__uploadFileInput" onchange="changedFile(event)" />
+                    <button class="section__uploadFileBtn" onclick="uploadFile(event)">Apply
+                        with a different
+                        CV</button>
+                    <p>(optional)</p>
+                    <button>Submit</button>
+                </form>
+            </div>
+            <div class="section__projectCard [ is-collapsed ]">
+                <div class="section__projectCardInner [ js-expander ]">
+                    <h1>Project Name</h1>
+                    <hr style="width: 25%;" />
+                    <hr style="width: 50%;" />
+                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
+                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
+                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close [ js-collapser ]"></i>
+                    <h1>Project Details</h1>
+                    <p><b><i class="fas fa-file-signature"></i></i>Name: </b>Project Name</p>
+                    <p><b><i class="fas fa-university"></i></i>University: </b>Indian Institue Of Technology, Kharagpur
+                    </p>
+                    <p><b><i class="fas fa-calendar-day"></i></i>Date: </b>Jan 1, 2022</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details: </b>Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Beatae hic harum
+                        quod quo eum, laudantium, unde architecto ullam dolorum et fuga est vitae, consectetur
+                        dolores. Corrupti placeat dicta laboriosam tempore itaque quo adipisci esse in libero
+                        aliquam eos perferendis commodi ut, exercitationem architecto nesciunt hic? Reprehenderit
+                        dignissimos minima sit ratione?</p>
+                    <p><b><i class="fas fa-calendar-alt"></i></i>Duration: </b>Lorem, ipsum dolor.</p>
+                    <p><b><i class="fas fa-puzzle-piece"></i>Pre-requisite: </b>Lorem ipsum dolor sit amet consectetur,
+                        adipisicinelit.Exercitationem,sapiente?
+                    </p>
+                    <p><b><i class="fas fa-dollar-sign"></i>Stipend: </b>100000</p>
+                    <button class="popup__applyBtn" onclick="openForm(event)">Apply</button>
+                </div>
+                <form class="section__form">
+                    <i class="fa fa-close" onclick="closeForm(event)"></i>
+                    <h1>Project Name</h1>
+                    <h2>Indian Institute of Technology, Kharagpur</h2>
+                    <textarea type="text"
+                        placeholder="Write a statement of importance of the proposed research to your future in 250 words."></textarea>
+                    <input type="file" class="section__uploadFileInput" onchange="changedFile(event)" />
+                    <button class="section__uploadFileBtn" onclick="uploadFile(event)">Apply
+                        with a different
+                        CV</button>
+                    <p>(optional)</p>
+                    <button>Submit</button>
+                </form>
+            </div>
+            <div class="section__projectCard [ is-collapsed ]">
+                <div class="section__projectCardInner [ js-expander ]">
+                    <h1>Project Name</h1>
+                    <hr style="width: 25%;" />
+                    <hr style="width: 50%;" />
+                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
+                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
+                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close [ js-collapser ]"></i>
+                    <h1>Project Details</h1>
+                    <p><b><i class="fas fa-file-signature"></i></i>Name: </b>Project Name</p>
+                    <p><b><i class="fas fa-university"></i></i>University: </b>Indian Institue Of Technology, Kharagpur
+                    </p>
+                    <p><b><i class="fas fa-calendar-day"></i></i>Date: </b>Jan 1, 2022</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details: </b>Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Beatae hic harum
+                        quod quo eum, laudantium, unde architecto ullam dolorum et fuga est vitae, consectetur
+                        dolores. Corrupti placeat dicta laboriosam tempore itaque quo adipisci esse in libero
+                        aliquam eos perferendis commodi ut, exercitationem architecto nesciunt hic? Reprehenderit
+                        dignissimos minima sit ratione?</p>
+                    <p><b><i class="fas fa-calendar-alt"></i></i>Duration: </b>Lorem, ipsum dolor.</p>
+                    <p><b><i class="fas fa-puzzle-piece"></i>Pre-requisite: </b>Lorem ipsum dolor sit amet consectetur,
+                        adipisicinelit.Exercitationem,sapiente?
+                    </p>
+                    <p><b><i class="fas fa-dollar-sign"></i>Stipend: </b>100000</p>
+                    <button class="popup__applyBtn" onclick="openForm(event)">Apply</button>
+                </div>
+                <form class="section__form">
+                    <i class="fa fa-close" onclick="closeForm(event)"></i>
+                    <h1>Project Name</h1>
+                    <h2>Indian Institute of Technology, Kharagpur</h2>
+                    <textarea type="text"
+                        placeholder="Write a statement of importance of the proposed research to your future in 250 words."></textarea>
+                    <input type="file" class="section__uploadFileInput" onchange="changedFile(event)" />
+                    <button class="section__uploadFileBtn" onclick="uploadFile(event)">Apply
+                        with a different
+                        CV</button>
+                    <p>(optional)</p>
+                    <button>Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="shapeDivider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+                    opacity=".25" class="shape-fill"></path>
+                <path
+                    d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+                    opacity=".5" class="shape-fill"></path>
+                <path
+                    d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <div class="footer__parallax"></div>
+    <footer>
+        <div class="footer__container">
+            <div class="footer__section">
+                <h1>International Relations Cell</h1>
+                <hr style="width: 50px;" />
+                <hr style="width: 70px;margin-bottom: 10px;" />
+                <p>The International Relations Cell (IRC) is a student body working under the Office of International
+                    Relations (OIR). It works to promote the exchange of students, faculties, and ideas between IIT
+                    Kharagpur and her international partners and establishing the globalization of IIT Kharagpur.</p>
+            </div>
+            <div class="footer__links">
+                <div class="footer__section">
+                    <h1>Quick Links</h1>
+                    <hr style="width: 50px;" />
+                    <hr style="width: 70px;margin-bottom: 10px;" />
+                    <a href="#"><i class="fas fa-chevron-right"></i>FAQ</a>
+                    <a href="#"><i class="fas fa-chevron-right"></i>Contact Us</a>
+                    <a href="#"><i class="fas fa-chevron-right"></i>About</a>
+                    <a href="#"><i class="fas fa-chevron-right"></i>Notice Board</a>
+                </div>
+                <div class="footer__section">
+                    <h1>Contact Us</h1>
+                    <hr style="width: 50px;" />
+                    <hr style="width: 70px;margin-bottom: 10px;" />
+                    <a href=""><i class="fas fa-chevron-right"></i>ftp.ircell@gmail.com</a>
+                    <div class="footer__icons">
+                        <i class="fab fa-youtube"></i>
+                        <i class="fab fa-facebook-square"></i>
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+<script src="static/js/script.js"></script>
+<script src="https://kit.fontawesome.com/f784174103.js" crossorigin="anonymous"></script>
+
+</html>

@@ -1,0 +1,81 @@
+/* Scroll-to-top button */
+.scrollToTopBtn,
+.profileBtn {
+  font-size: 25px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+  background-color: #46a2fd;
+  border: 2px solid white;
+  border-radius: 50%;
+  padding: 15px;
+  animation: floatingBtn__default 1.5s linear infinite;
+  transform: scale(0);
+  transition: all 0.5s;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.scrollToTopBtn:hover,
+.profileBtn:hover {
+  color: #46a2fd;
+  background-color: white;
+  border: 2px solid #46a2fd;
+}
+
+.scrollToTopBtn:focus,
+.profileBtn:focus {
+  animation: floatingBtn__click 0.5s linear 1,
+    floatingBtn__default 1.5s linear infinite;
+}
+
+.scrollToTopBtn:active,
+.profileBtn:active {
+  color: white;
+  background-color: #46a2fd;
+  border: 2px solid white;
+  animation: none;
+}
+
+.profileBtn {
+  display: none !important;
+}
+
+/* Animations */
+@keyframes floatingBtn__default {
+  25% {
+    margin-bottom: 3px;
+  }
+  50% {
+    margin-bottom: 0px;
+  }
+  75% {
+    margin-bottom: -3px;
+  }
+}
+
+@keyframes floatingBtn__click {
+  20% {
+    transform: scale(0.8);
+  }
+  40% {
+    transform: scale(1.2);
+  }
+  60% {
+    transform: scale(0.9);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+}
+
+/* Media queries */
+@media only screen and (max-width: 800px) {
+  .scrollToTopBtn {
+    display: none !important;
+  }
+  .profileBtn {
+    display: inline !important;
+  }
+}

@@ -1,0 +1,22 @@
+section {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  background-color: white;
+  z-index: 1;
+  padding: 50px 0;
+}
+
+section > h1 {
+  color: #545454;
+  font-size: 35px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+section > h1 > i {
+  font-size: 28px;
+  margin: 0 15px;
+}

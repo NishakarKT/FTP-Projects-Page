@@ -1,0 +1,44 @@
+.nav__avatar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 2px;
+  padding-right: 5px;
+  border-radius: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.nav__onScroll .nav__avatar {
+  background-color: #4a8ffc;
+}
+
+.nav__avatar:hover {
+  filter: brightness(90%);
+  transform: scale(1.01);
+}
+
+.nav__avatar > span {
+  display: flex;
+  align-items: center;
+  color: #4a8ffc;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.nav__onScroll .nav__avatar > span {
+  color: white;
+}
+
+.nav__avatar > img {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 5px;
+  border: 1.5px solid #4a8ffc;
+}
+
+.nav__onScroll .nav__avatar > img {
+  border: 1.5px solid white;
+}
