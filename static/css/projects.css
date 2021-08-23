@@ -18,20 +18,7 @@
   /* justify-self: flex-start; */
 }
 
-.section__projectCard::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 215px;
-  filter: brightness(60%);
-  background: url("/images/iit_kgp.jpg") no-repeat center center / cover;
-  border-radius: 5px;
-}
-
 .section__projectCardInner {
-  height: 210px;
   width: 100%;
   padding: 20px 10px;
   position: relative;
@@ -40,7 +27,7 @@
   align-items: flex-start;
   cursor: pointer;
   background-color: transparent;
-  color: #eceef1;
+  color: #515153;
   font-size: 1.5em;
   transition: all 0.5s ease-in-out;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -48,7 +35,6 @@
 }
 
 .section__projectCardInner:hover {
-  background-color: rgba(0, 0, 0, 0.35);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 15px,
     rgba(0, 0, 0, 0.12) 0px 5px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -59,44 +45,97 @@
 }
 
 .section__projectCardInner > hr {
-  height: 2px;
-  background-color: white !important;
-  outline: none;
+  height: 1px;
+  background-color: lightgrey;
+  width: 100%;
+  margin: 15px 0;
   border: none;
-  margin-bottom: 5px;
+  outline: none;
 }
 
-.section__projectCardInner > h1 {
+.section__projectCardTitle {
   font-size: 25px;
-  font-weight: bold;
+  font-weight: 700;
   margin-bottom: 5px;
 }
 
-.section__projectCardInner > h2 {
-  font-size: 20px;
-  font-weight: 500;
-  margin-top: 10px;
+.section__projectCardRatingContainer {
+  display: flex;
+  align-items: center;
 }
 
-.section__projectCardInner > h2 > i {
-  font-size: 15px;
-  margin-right: 10px;
+.section__projectCardRating {
+  position: relative;
 }
 
-.section__projectCardInner > h3 {
+.section__projectCardRatingTop {
+  font-size: 12px;
+  white-space: nowrap;
+  text-shadow: 0 0 2px grey;
+}
+
+.section__projectCardRatingBottom {
+  font-size: 12px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: yellow;
+  white-space: nowrap;
+  text-shadow: 0 0 2px grey;
+}
+
+.section__projectCardFinalRating {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.section__projectCardSecondaryText {
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   margin-top: 15px;
 }
 
-.section__projectCardInner > h3 > i {
-  font-size: 15px;
-  margin-right: 10px;
+.section__projectCardDetail {
+  font-size: 14px;
+  margin-top: 5px;
 }
 
-.section__projectCardInner .fa {
+.section__projectCardSubtitle {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.section__tagsContainer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   width: 100%;
-  margin-top: 0.25em;
+  margin-top: 10px;
+}
+
+.section__tag {
+  font-size: 13px;
+  font-weight: 500;
+  background-color: lightgray;
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  transition: all 0.5s;
+}
+
+.section__tag:hover {
+  filter: brightness(90%);
+}
+
+.section__projectCardAction {
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 15px;
 }
 
 .section__projectDetails {
@@ -157,7 +196,7 @@
   left: calc(50% - 15px);
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
-  border-bottom: 15px solid white;
+  border-bottom: 15px solid #515153;
 }
 
 .section__projectCard.is-expanded .section__projectCardInner .fa:before {

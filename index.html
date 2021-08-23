@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="static/css/profileMenu.css" />
     <link rel="stylesheet" href="static/css/avatar.css" />
     <link rel="stylesheet" href="static/css/nav.css" />
-    <link rel="stylesheet" href="static/css/sidebar.css" />
     <link rel="stylesheet" href="static/css/section.css" />
     <link rel="stylesheet" href="static/css/form.css" />
     <link rel="stylesheet" href="static/css/projects.css" />
@@ -28,7 +27,6 @@
 <body>
     <i class="fas fa-arrow-up scrollToTopBtn" tabindex="0" onclick="scrollToTop()"></i>
     <i class="fas fa-user-tie profileBtn" tabindex="0" onclick="openProfileMenu()"></i>
-    <i class="fas fa-bookmark sidebarBtn" onclick="openSidebar()"></i>
 
     <div class="profileMenu profileMenuInactive">
         <a href="#">
@@ -107,32 +105,47 @@
         </a>
     </div>
 
-    <aside class="sidebarContainer" onclick="closeSidebar()">
-        <div class="sidebar">
-            <img src="/images/irc_logo.png" alt="" />
-            <div class="sidebar__links">
-                <a href="#"><i class="fas fa-graduation-cap"></i>Scholarships</a>
-                <a href="#"><i class="fas fa-graduation-cap"></i>Scholarships</a>
-                <a href="#"><i class="fas fa-graduation-cap"></i>Scholarships</a>
-                <a href="#"><i class="fas fa-graduation-cap"></i>Scholarships</a>
-                <a href="#"><i class="fas fa-graduation-cap"></i>Scholarships</a>
-                <a href="#"><i class="fas fa-arrow-left"></i>Back</a>
-            </div>
-        </div>
-    </aside>
-
     <section>
         <h1><i class="fas fa-project-diagram"></i>Projects<i class="fas fa-project-diagram"
                 style="transform: rotate3d(0,1,0,180deg);"></i></h1>
         <div class="section__projects">
             <div class="section__projectCard [ is-collapsed ]">
                 <div class="section__projectCardInner [ js-expander ]">
-                    <h1>Project Name</h1>
-                    <hr style="width: 25%;" />
-                    <hr style="width: 50%;" />
-                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
-                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
-                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                    <p class="section__projectCardTitle">Title</p>
+                    <div class="section__projectCardRatingContainer">
+                        <div class="section__projectCardRating">
+                            <div class="section__projectCardRatingTop">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="section__projectCardRatingBottom" style="width: 50%">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="section__projectCardFinalRating">2.5 (413)</p>
+                    </div>
+                    <p class="section__projectCardSecondaryText">Secondary text</p>
+                    <p class="section__projectCardDetail">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Facere voluptatem sed unde!</p>
+                    <hr />
+                    <p class="section__projectCardSubtitle">Subtitle</p>
+                    <div class="section__tagsContainer">
+                        <p class="section__tag">Item 1</p>
+                        <p class="section__tag">Item 2</p>
+                        <p class="section__tag">Item 3</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                    </div>
+                    <p class="section__projectCardAction">ACTION 1</p>
                 </div>
                 <div class="section__projectDetails">
                     <i class="fa fa-close [ js-collapser ]"></i>
@@ -170,12 +183,41 @@
             </div>
             <div class="section__projectCard [ is-collapsed ]">
                 <div class="section__projectCardInner [ js-expander ]">
-                    <h1>Project Name</h1>
-                    <hr style="width: 25%;" />
-                    <hr style="width: 50%;" />
-                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
-                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
-                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                    <p class="section__projectCardTitle">Title</p>
+                    <div class="section__projectCardRatingContainer">
+                        <div class="section__projectCardRating">
+                            <div class="section__projectCardRatingTop">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="section__projectCardRatingBottom" style="width: 50%">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="section__projectCardFinalRating">2.5 (413)</p>
+                    </div>
+                    <p class="section__projectCardSecondaryText">Secondary text</p>
+                    <p class="section__projectCardDetail">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Facere voluptatem sed unde!</p>
+                    <hr />
+                    <p class="section__projectCardSubtitle">Subtitle</p>
+                    <div class="section__tagsContainer">
+                        <p class="section__tag">Item 1</p>
+                        <p class="section__tag">Item 2</p>
+                        <p class="section__tag">Item 3</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                    </div>
+                    <p class="section__projectCardAction">ACTION 1</p>
                 </div>
                 <div class="section__projectDetails">
                     <i class="fa fa-close [ js-collapser ]"></i>
@@ -213,12 +255,41 @@
             </div>
             <div class="section__projectCard [ is-collapsed ]">
                 <div class="section__projectCardInner [ js-expander ]">
-                    <h1>Project Name</h1>
-                    <hr style="width: 25%;" />
-                    <hr style="width: 50%;" />
-                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
-                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
-                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                    <p class="section__projectCardTitle">Title</p>
+                    <div class="section__projectCardRatingContainer">
+                        <div class="section__projectCardRating">
+                            <div class="section__projectCardRatingTop">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="section__projectCardRatingBottom" style="width: 50%">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="section__projectCardFinalRating">2.5 (413)</p>
+                    </div>
+                    <p class="section__projectCardSecondaryText">Secondary text</p>
+                    <p class="section__projectCardDetail">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Facere voluptatem sed unde!</p>
+                    <hr />
+                    <p class="section__projectCardSubtitle">Subtitle</p>
+                    <div class="section__tagsContainer">
+                        <p class="section__tag">Item 1</p>
+                        <p class="section__tag">Item 2</p>
+                        <p class="section__tag">Item 3</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                    </div>
+                    <p class="section__projectCardAction">ACTION 1</p>
                 </div>
                 <div class="section__projectDetails">
                     <i class="fa fa-close [ js-collapser ]"></i>
@@ -256,12 +327,41 @@
             </div>
             <div class="section__projectCard [ is-collapsed ]">
                 <div class="section__projectCardInner [ js-expander ]">
-                    <h1>Project Name</h1>
-                    <hr style="width: 25%;" />
-                    <hr style="width: 50%;" />
-                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
-                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
-                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                    <p class="section__projectCardTitle">Title</p>
+                    <div class="section__projectCardRatingContainer">
+                        <div class="section__projectCardRating">
+                            <div class="section__projectCardRatingTop">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="section__projectCardRatingBottom" style="width: 50%">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="section__projectCardFinalRating">2.5 (413)</p>
+                    </div>
+                    <p class="section__projectCardSecondaryText">Secondary text</p>
+                    <p class="section__projectCardDetail">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Facere voluptatem sed unde!</p>
+                    <hr />
+                    <p class="section__projectCardSubtitle">Subtitle</p>
+                    <div class="section__tagsContainer">
+                        <p class="section__tag">Item 1</p>
+                        <p class="section__tag">Item 2</p>
+                        <p class="section__tag">Item 3</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                    </div>
+                    <p class="section__projectCardAction">ACTION 1</p>
                 </div>
                 <div class="section__projectDetails">
                     <i class="fa fa-close [ js-collapser ]"></i>
@@ -299,12 +399,41 @@
             </div>
             <div class="section__projectCard [ is-collapsed ]">
                 <div class="section__projectCardInner [ js-expander ]">
-                    <h1>Project Name</h1>
-                    <hr style="width: 25%;" />
-                    <hr style="width: 50%;" />
-                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
-                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
-                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                    <p class="section__projectCardTitle">Title</p>
+                    <div class="section__projectCardRatingContainer">
+                        <div class="section__projectCardRating">
+                            <div class="section__projectCardRatingTop">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="section__projectCardRatingBottom" style="width: 50%">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="section__projectCardFinalRating">2.5 (413)</p>
+                    </div>
+                    <p class="section__projectCardSecondaryText">Secondary text</p>
+                    <p class="section__projectCardDetail">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Facere voluptatem sed unde!</p>
+                    <hr />
+                    <p class="section__projectCardSubtitle">Subtitle</p>
+                    <div class="section__tagsContainer">
+                        <p class="section__tag">Item 1</p>
+                        <p class="section__tag">Item 2</p>
+                        <p class="section__tag">Item 3</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                    </div>
+                    <p class="section__projectCardAction">ACTION 1</p>
                 </div>
                 <div class="section__projectDetails">
                     <i class="fa fa-close [ js-collapser ]"></i>
@@ -342,12 +471,41 @@
             </div>
             <div class="section__projectCard [ is-collapsed ]">
                 <div class="section__projectCardInner [ js-expander ]">
-                    <h1>Project Name</h1>
-                    <hr style="width: 25%;" />
-                    <hr style="width: 50%;" />
-                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
-                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
-                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                    <p class="section__projectCardTitle">Title</p>
+                    <div class="section__projectCardRatingContainer">
+                        <div class="section__projectCardRating">
+                            <div class="section__projectCardRatingTop">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="section__projectCardRatingBottom" style="width: 50%">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="section__projectCardFinalRating">2.5 (413)</p>
+                    </div>
+                    <p class="section__projectCardSecondaryText">Secondary text</p>
+                    <p class="section__projectCardDetail">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Facere voluptatem sed unde!</p>
+                    <hr />
+                    <p class="section__projectCardSubtitle">Subtitle</p>
+                    <div class="section__tagsContainer">
+                        <p class="section__tag">Item 1</p>
+                        <p class="section__tag">Item 2</p>
+                        <p class="section__tag">Item 3</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                    </div>
+                    <p class="section__projectCardAction">ACTION 1</p>
                 </div>
                 <div class="section__projectDetails">
                     <i class="fa fa-close [ js-collapser ]"></i>
@@ -385,12 +543,41 @@
             </div>
             <div class="section__projectCard [ is-collapsed ]">
                 <div class="section__projectCardInner [ js-expander ]">
-                    <h1>Project Name</h1>
-                    <hr style="width: 25%;" />
-                    <hr style="width: 50%;" />
-                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
-                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
-                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                    <p class="section__projectCardTitle">Title</p>
+                    <div class="section__projectCardRatingContainer">
+                        <div class="section__projectCardRating">
+                            <div class="section__projectCardRatingTop">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="section__projectCardRatingBottom" style="width: 50%">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="section__projectCardFinalRating">2.5 (413)</p>
+                    </div>
+                    <p class="section__projectCardSecondaryText">Secondary text</p>
+                    <p class="section__projectCardDetail">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Facere voluptatem sed unde!</p>
+                    <hr />
+                    <p class="section__projectCardSubtitle">Subtitle</p>
+                    <div class="section__tagsContainer">
+                        <p class="section__tag">Item 1</p>
+                        <p class="section__tag">Item 2</p>
+                        <p class="section__tag">Item 3</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                    </div>
+                    <p class="section__projectCardAction">ACTION 1</p>
                 </div>
                 <div class="section__projectDetails">
                     <i class="fa fa-close [ js-collapser ]"></i>
@@ -428,12 +615,41 @@
             </div>
             <div class="section__projectCard [ is-collapsed ]">
                 <div class="section__projectCardInner [ js-expander ]">
-                    <h1>Project Name</h1>
-                    <hr style="width: 25%;" />
-                    <hr style="width: 50%;" />
-                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
-                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
-                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                    <p class="section__projectCardTitle">Title</p>
+                    <div class="section__projectCardRatingContainer">
+                        <div class="section__projectCardRating">
+                            <div class="section__projectCardRatingTop">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="section__projectCardRatingBottom" style="width: 50%">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="section__projectCardFinalRating">2.5 (413)</p>
+                    </div>
+                    <p class="section__projectCardSecondaryText">Secondary text</p>
+                    <p class="section__projectCardDetail">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Facere voluptatem sed unde!</p>
+                    <hr />
+                    <p class="section__projectCardSubtitle">Subtitle</p>
+                    <div class="section__tagsContainer">
+                        <p class="section__tag">Item 1</p>
+                        <p class="section__tag">Item 2</p>
+                        <p class="section__tag">Item 3</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                    </div>
+                    <p class="section__projectCardAction">ACTION 1</p>
                 </div>
                 <div class="section__projectDetails">
                     <i class="fa fa-close [ js-collapser ]"></i>
@@ -472,15 +688,45 @@
         </div>
         <h1><i class="fas fa-project-diagram"></i>Past Projects<i class="fas fa-project-diagram"
                 style="transform: rotate3d(0,1,0,180deg);"></i></h1>
+        </div>
         <div class="section__projects">
             <div class="section__projectCard [ is-collapsed ]">
                 <div class="section__projectCardInner [ js-expander ]">
-                    <h1>Project Name</h1>
-                    <hr style="width: 25%;" />
-                    <hr style="width: 50%;" />
-                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
-                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
-                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                    <p class="section__projectCardTitle">Title</p>
+                    <div class="section__projectCardRatingContainer">
+                        <div class="section__projectCardRating">
+                            <div class="section__projectCardRatingTop">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="section__projectCardRatingBottom" style="width: 50%">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="section__projectCardFinalRating">2.5 (413)</p>
+                    </div>
+                    <p class="section__projectCardSecondaryText">Secondary text</p>
+                    <p class="section__projectCardDetail">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Facere voluptatem sed unde!</p>
+                    <hr />
+                    <p class="section__projectCardSubtitle">Subtitle</p>
+                    <div class="section__tagsContainer">
+                        <p class="section__tag">Item 1</p>
+                        <p class="section__tag">Item 2</p>
+                        <p class="section__tag">Item 3</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                    </div>
+                    <p class="section__projectCardAction">ACTION 1</p>
                 </div>
                 <div class="section__projectDetails">
                     <i class="fa fa-close [ js-collapser ]"></i>
@@ -518,12 +764,41 @@
             </div>
             <div class="section__projectCard [ is-collapsed ]">
                 <div class="section__projectCardInner [ js-expander ]">
-                    <h1>Project Name</h1>
-                    <hr style="width: 25%;" />
-                    <hr style="width: 50%;" />
-                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
-                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
-                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                    <p class="section__projectCardTitle">Title</p>
+                    <div class="section__projectCardRatingContainer">
+                        <div class="section__projectCardRating">
+                            <div class="section__projectCardRatingTop">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="section__projectCardRatingBottom" style="width: 50%">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="section__projectCardFinalRating">2.5 (413)</p>
+                    </div>
+                    <p class="section__projectCardSecondaryText">Secondary text</p>
+                    <p class="section__projectCardDetail">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Facere voluptatem sed unde!</p>
+                    <hr />
+                    <p class="section__projectCardSubtitle">Subtitle</p>
+                    <div class="section__tagsContainer">
+                        <p class="section__tag">Item 1</p>
+                        <p class="section__tag">Item 2</p>
+                        <p class="section__tag">Item 3</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                    </div>
+                    <p class="section__projectCardAction">ACTION 1</p>
                 </div>
                 <div class="section__projectDetails">
                     <i class="fa fa-close [ js-collapser ]"></i>
@@ -561,12 +836,41 @@
             </div>
             <div class="section__projectCard [ is-collapsed ]">
                 <div class="section__projectCardInner [ js-expander ]">
-                    <h1>Project Name</h1>
-                    <hr style="width: 25%;" />
-                    <hr style="width: 50%;" />
-                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
-                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
-                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                    <p class="section__projectCardTitle">Title</p>
+                    <div class="section__projectCardRatingContainer">
+                        <div class="section__projectCardRating">
+                            <div class="section__projectCardRatingTop">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="section__projectCardRatingBottom" style="width: 50%">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="section__projectCardFinalRating">2.5 (413)</p>
+                    </div>
+                    <p class="section__projectCardSecondaryText">Secondary text</p>
+                    <p class="section__projectCardDetail">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Facere voluptatem sed unde!</p>
+                    <hr />
+                    <p class="section__projectCardSubtitle">Subtitle</p>
+                    <div class="section__tagsContainer">
+                        <p class="section__tag">Item 1</p>
+                        <p class="section__tag">Item 2</p>
+                        <p class="section__tag">Item 3</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                    </div>
+                    <p class="section__projectCardAction">ACTION 1</p>
                 </div>
                 <div class="section__projectDetails">
                     <i class="fa fa-close [ js-collapser ]"></i>
@@ -604,12 +908,41 @@
             </div>
             <div class="section__projectCard [ is-collapsed ]">
                 <div class="section__projectCardInner [ js-expander ]">
-                    <h1>Project Name</h1>
-                    <hr style="width: 25%;" />
-                    <hr style="width: 50%;" />
-                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
-                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
-                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                    <p class="section__projectCardTitle">Title</p>
+                    <div class="section__projectCardRatingContainer">
+                        <div class="section__projectCardRating">
+                            <div class="section__projectCardRatingTop">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="section__projectCardRatingBottom" style="width: 50%">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="section__projectCardFinalRating">2.5 (413)</p>
+                    </div>
+                    <p class="section__projectCardSecondaryText">Secondary text</p>
+                    <p class="section__projectCardDetail">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Facere voluptatem sed unde!</p>
+                    <hr />
+                    <p class="section__projectCardSubtitle">Subtitle</p>
+                    <div class="section__tagsContainer">
+                        <p class="section__tag">Item 1</p>
+                        <p class="section__tag">Item 2</p>
+                        <p class="section__tag">Item 3</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                    </div>
+                    <p class="section__projectCardAction">ACTION 1</p>
                 </div>
                 <div class="section__projectDetails">
                     <i class="fa fa-close [ js-collapser ]"></i>
@@ -647,12 +980,41 @@
             </div>
             <div class="section__projectCard [ is-collapsed ]">
                 <div class="section__projectCardInner [ js-expander ]">
-                    <h1>Project Name</h1>
-                    <hr style="width: 25%;" />
-                    <hr style="width: 50%;" />
-                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
-                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
-                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                    <p class="section__projectCardTitle">Title</p>
+                    <div class="section__projectCardRatingContainer">
+                        <div class="section__projectCardRating">
+                            <div class="section__projectCardRatingTop">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="section__projectCardRatingBottom" style="width: 50%">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="section__projectCardFinalRating">2.5 (413)</p>
+                    </div>
+                    <p class="section__projectCardSecondaryText">Secondary text</p>
+                    <p class="section__projectCardDetail">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Facere voluptatem sed unde!</p>
+                    <hr />
+                    <p class="section__projectCardSubtitle">Subtitle</p>
+                    <div class="section__tagsContainer">
+                        <p class="section__tag">Item 1</p>
+                        <p class="section__tag">Item 2</p>
+                        <p class="section__tag">Item 3</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                    </div>
+                    <p class="section__projectCardAction">ACTION 1</p>
                 </div>
                 <div class="section__projectDetails">
                     <i class="fa fa-close [ js-collapser ]"></i>
@@ -690,12 +1052,41 @@
             </div>
             <div class="section__projectCard [ is-collapsed ]">
                 <div class="section__projectCardInner [ js-expander ]">
-                    <h1>Project Name</h1>
-                    <hr style="width: 25%;" />
-                    <hr style="width: 50%;" />
-                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
-                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
-                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                    <p class="section__projectCardTitle">Title</p>
+                    <div class="section__projectCardRatingContainer">
+                        <div class="section__projectCardRating">
+                            <div class="section__projectCardRatingTop">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="section__projectCardRatingBottom" style="width: 50%">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="section__projectCardFinalRating">2.5 (413)</p>
+                    </div>
+                    <p class="section__projectCardSecondaryText">Secondary text</p>
+                    <p class="section__projectCardDetail">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Facere voluptatem sed unde!</p>
+                    <hr />
+                    <p class="section__projectCardSubtitle">Subtitle</p>
+                    <div class="section__tagsContainer">
+                        <p class="section__tag">Item 1</p>
+                        <p class="section__tag">Item 2</p>
+                        <p class="section__tag">Item 3</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                    </div>
+                    <p class="section__projectCardAction">ACTION 1</p>
                 </div>
                 <div class="section__projectDetails">
                     <i class="fa fa-close [ js-collapser ]"></i>
@@ -733,12 +1124,41 @@
             </div>
             <div class="section__projectCard [ is-collapsed ]">
                 <div class="section__projectCardInner [ js-expander ]">
-                    <h1>Project Name</h1>
-                    <hr style="width: 25%;" />
-                    <hr style="width: 50%;" />
-                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
-                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
-                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                    <p class="section__projectCardTitle">Title</p>
+                    <div class="section__projectCardRatingContainer">
+                        <div class="section__projectCardRating">
+                            <div class="section__projectCardRatingTop">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="section__projectCardRatingBottom" style="width: 50%">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="section__projectCardFinalRating">2.5 (413)</p>
+                    </div>
+                    <p class="section__projectCardSecondaryText">Secondary text</p>
+                    <p class="section__projectCardDetail">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Facere voluptatem sed unde!</p>
+                    <hr />
+                    <p class="section__projectCardSubtitle">Subtitle</p>
+                    <div class="section__tagsContainer">
+                        <p class="section__tag">Item 1</p>
+                        <p class="section__tag">Item 2</p>
+                        <p class="section__tag">Item 3</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                    </div>
+                    <p class="section__projectCardAction">ACTION 1</p>
                 </div>
                 <div class="section__projectDetails">
                     <i class="fa fa-close [ js-collapser ]"></i>
@@ -776,55 +1196,41 @@
             </div>
             <div class="section__projectCard [ is-collapsed ]">
                 <div class="section__projectCardInner [ js-expander ]">
-                    <h1>Project Name</h1>
-                    <hr style="width: 25%;" />
-                    <hr style="width: 50%;" />
-                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
-                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
-                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
-                </div>
-                <div class="section__projectDetails">
-                    <i class="fa fa-close [ js-collapser ]"></i>
-                    <h1>Project Details</h1>
-                    <p><b><i class="fas fa-file-signature"></i></i>Name: </b>Project Name</p>
-                    <p><b><i class="fas fa-university"></i></i>University: </b>Indian Institue Of Technology, Kharagpur
-                    </p>
-                    <p><b><i class="fas fa-calendar-day"></i></i>Date: </b>Jan 1, 2022</p>
-                    <p><b><i class="fas fa-info-circle"></i>Details: </b>Lorem ipsum dolor sit amet consectetur
-                        adipisicing elit. Beatae hic harum
-                        quod quo eum, laudantium, unde architecto ullam dolorum et fuga est vitae, consectetur
-                        dolores. Corrupti placeat dicta laboriosam tempore itaque quo adipisci esse in libero
-                        aliquam eos perferendis commodi ut, exercitationem architecto nesciunt hic? Reprehenderit
-                        dignissimos minima sit ratione?</p>
-                    <p><b><i class="fas fa-calendar-alt"></i></i>Duration: </b>Lorem, ipsum dolor.</p>
-                    <p><b><i class="fas fa-puzzle-piece"></i>Pre-requisite: </b>Lorem ipsum dolor sit amet consectetur,
-                        adipisicinelit.Exercitationem,sapiente?
-                    </p>
-                    <p><b><i class="fas fa-dollar-sign"></i>Stipend: </b>100000</p>
-                    <button class="popup__applyBtn" onclick="openForm(event)">Apply</button>
-                </div>
-                <form class="section__form">
-                    <i class="fa fa-close" onclick="closeForm(event)"></i>
-                    <h1>Project Name</h1>
-                    <h2>Indian Institute of Technology, Kharagpur</h2>
-                    <textarea type="text"
-                        placeholder="Write a statement of importance of the proposed research to your future in 250 words."></textarea>
-                    <input type="file" class="section__uploadFileInput" onchange="changedFile(event)" />
-                    <button class="section__uploadFileBtn" onclick="uploadFile(event)">Apply
-                        with a different
-                        CV</button>
-                    <p>(optional)</p>
-                    <button>Submit</button>
-                </form>
-            </div>
-            <div class="section__projectCard [ is-collapsed ]">
-                <div class="section__projectCardInner [ js-expander ]">
-                    <h1>Project Name</h1>
-                    <hr style="width: 25%;" />
-                    <hr style="width: 50%;" />
-                    <h2><i class="fas fa-university"></i>Indian Institue Of Technology, Kharagpur</h2>
-                    <h3><i class="fas fa-calendar-day"></i>Jan 1, 2022</h3>
-                    <h3><i class="fas fa-question"></i></i>Click for project details.</h3>
+                    <p class="section__projectCardTitle">Title</p>
+                    <div class="section__projectCardRatingContainer">
+                        <div class="section__projectCardRating">
+                            <div class="section__projectCardRatingTop">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="section__projectCardRatingBottom" style="width: 50%">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="section__projectCardFinalRating">2.5 (413)</p>
+                    </div>
+                    <p class="section__projectCardSecondaryText">Secondary text</p>
+                    <p class="section__projectCardDetail">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Facere voluptatem sed unde!</p>
+                    <hr />
+                    <p class="section__projectCardSubtitle">Subtitle</p>
+                    <div class="section__tagsContainer">
+                        <p class="section__tag">Item 1</p>
+                        <p class="section__tag">Item 2</p>
+                        <p class="section__tag">Item 3</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                    </div>
+                    <p class="section__projectCardAction">ACTION 1</p>
                 </div>
                 <div class="section__projectDetails">
                     <i class="fa fa-close [ js-collapser ]"></i>

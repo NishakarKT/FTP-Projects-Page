@@ -5,8 +5,6 @@ const profileMenu = document.querySelector(".profileMenu");
 const nav = document.querySelector("nav");
 const navScroll = document.querySelector(".nav__onScroll");
 const navDropdown = document.querySelector(".nav__dropdown");
-const sidebarContainer = document.querySelector(".sidebarContainer");
-const sidebar = document.querySelector(".sidebar");
 
 // scroll events
 const scrollToTop = () => {
@@ -64,23 +62,6 @@ const dropdownHandler = () => {
         setTimeout(() => navDropdown.style.display = "none", 500);
         navDropdown.style.animation = "dropdown__disappear 0.5s ease-out 1 forwards";
     }
-};
-
-// Sidebar
-const openSidebar = () => {
-    sidebar.style.display = "block";
-    sidebarContainer.style.display = "block";
-};
-
-const closeSidebar = () => {
-    setTimeout(() => {
-        sidebar.style.display = "none"
-        sidebarContainer.style.display = "none";
-        sidebar.style.animation = "sidebar__appear 0.5s linear 1";
-        sidebarContainer.style.animation = "sidebarContainer__appear 0.5s linear 1";
-    }, 500);
-    sidebar.style.animation = "sidebar__disappear 0.5s linear 1";
-    sidebarContainer.style.animation = "sidebarContainer__disappear 0.5s linear 1";
 };
 
 // grid
