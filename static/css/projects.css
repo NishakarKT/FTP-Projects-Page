@@ -9,7 +9,7 @@
   width: 350px;
   border-radius: 5px;
   margin: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   justify-self: flex-start;
   transition: filter 0.5s;
 }
