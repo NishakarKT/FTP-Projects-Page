@@ -7,8 +7,6 @@ const navScroll = document.querySelector(".nav__onScroll");
 const navDropdown = document.querySelector(".nav__dropdown");
 const sidebarContainer = document.querySelector(".sidebarContainer");
 const sidebar = document.querySelector(".sidebar");
-const uploadFileInput = document.querySelector(".section__uploadFileInput");
-const uploadFileBtn = document.querySelector(".section__uploadFileBtn");
 
 // scroll events
 const scrollToTop = () => {
@@ -94,6 +92,7 @@ $cell.find('.js-expander').on("click", function () {
     if ($thisCell.hasClass('is-collapsed')) {
         $cell.not($thisCell).removeClass('is-expanded').addClass('is-collapsed').addClass('is-inactive');
         $thisCell.removeClass('is-collapsed').addClass('is-expanded');
+        window.scrollBy(0, 300);
 
         if ($cell.not($thisCell).hasClass('is-inactive')) {
             //do nothing
@@ -108,6 +107,7 @@ $cell.find('.js-expander').on("click", function () {
 
 //close card when click on cross
 $cell.find('.js-collapser').on("click", function () {
+    window.scrollBy(0, -300);
     var $thisCell = $(this).closest('.section__projectCard');
     $thisCell.removeClass('is-expanded').addClass('is-collapsed');
     $cell.not($thisCell).removeClass('is-inactive');
@@ -119,11 +119,13 @@ const openForm = (e) => {
     form.style.display = "flex";
     form.style.animation = "form__appear 0.5s ease-out 1 forwards";
     form.style.zIndex = "3";
+    window.scrollBy(0, 400);
 };
 const closeForm = (e) => {
     const form = e.target.parentElement;
     form.style.animation = "form__disappear 0.5s ease-out 1 forwards";
     setTimeout(() => form.style.display = "none", 500);
+    window.scrollBy(0, -400);
 };
 
 // profile menu handling
@@ -146,8 +148,8 @@ const truncate = (str, n) => {
 
 const uploadFile = (e) => {
     e.preventDefault();
-    uploadFileInput.click();
+    e.target.previousElementSibling.click();
 };
 const changedFile = (e) => {
-    uploadFileBtn.innerText = "Uploaded: \"" + truncate(e.target.files[0].name, 20) + "\"";
+    e.target.nextElementSibling.innerText = "Uploaded: \"" + truncate(e.target.files[0].name, 20) + "\"";
 };

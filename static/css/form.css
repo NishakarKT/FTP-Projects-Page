@@ -117,18 +117,19 @@
 }
 
 /* Media queries */
+
+@media screen and (min-width: 767px) {
+  .section__projectCard:nth-of-type(2n + 2) .section__form {
+    left: -100%;
+  }
+}
+
 @media screen and (min-width: 1110px) {
   .section__projectCard:nth-of-type(3n + 2) .section__form {
     left: -100%;
   }
   .section__projectCard:nth-of-type(3n + 3) .section__form {
     left: calc(-200% - 20px);
-  }
-}
-
-@media screen and (min-width: 767px) {
-  .section__projectCard:nth-of-type(2n) .section__form {
-    left: -100%;
   }
 }
 
