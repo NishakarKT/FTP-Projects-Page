@@ -52,7 +52,7 @@ window.addEventListener("scroll", () => {
     }
     // card transitions
     projectCards.map(projectCard => {
-        if (projectCard.getBoundingClientRect().y < projectCard.clientHeight + 120) {
+        if (projectCard.getBoundingClientRect().y < projectCard.clientHeight + 150) {
             projectCard.style.animation = "projectCard__appear 0.5s ease-out 1 forwards";
         }
         else {
