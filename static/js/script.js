@@ -60,6 +60,8 @@ window.addEventListener("scroll", () => {
         }
     });
 });
+// cards transitions fix on page reload
+window.scrollBy(0, 1);
 
 // Drop down menu
 const dropdownHandler = () => {
