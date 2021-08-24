@@ -7,8 +7,7 @@ footer {
   display: flex;
   align-items: flex-end;
   background: url("/images/bg_map.png") fixed no-repeat center center / cover,
-    rgba(0, 0, 0, 0) linear-gradient(135deg, #584bfb 0%, #45aafd 99%) repeat
-      scroll 0 0;
+    rgba(0, 0, 0, 0) linear-gradient(45deg, black, #2a4ba5) repeat scroll 0 0;
   padding-bottom: 10vh;
 }
 
@@ -18,6 +17,7 @@ footer {
 
 .footer__container {
   display: flex;
+  justify-content: center;
 }
 
 .footer__links {
@@ -29,6 +29,10 @@ footer {
   flex-direction: column;
   color: white;
   margin: 0 20px;
+}
+
+.footer__container > .footer__section {
+  width: 55%;
 }
 
 .footer__section > h1 {
@@ -156,9 +160,21 @@ footer {
     align-items: flex-start;
     flex-direction: column;
   }
+  .footer__container > .footer__section {
+    width: 95%;
+  }
+  .footer__links {
+    flex-direction: row;
+  }
 }
 
 @media only screen and (max-width: 270px) {
+  .footer__links {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 230px) {
   .footer__section {
     margin: 0 10px;
   }

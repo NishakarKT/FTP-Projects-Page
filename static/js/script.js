@@ -6,6 +6,7 @@ const nav = document.querySelector("nav");
 const navScroll = document.querySelector(".nav__onScroll");
 const navDropdown = document.querySelector(".nav__dropdown");
 const projectForm = document.querySelector(".projectForm");
+const projectCards = Array.from(document.getElementsByClassName("section__projectCard"));
 
 // scroll events
 const scrollToTop = () => {
@@ -49,6 +50,15 @@ window.addEventListener("scroll", () => {
         profileBtn.style.transform = "scale(0)";
         profileMenu.style.transform = "scale(0)";
     }
+    // card transitions
+    projectCards.map(projectCard => {
+        if (projectCard.getBoundingClientRect().y < projectCard.clientHeight + 120) {
+            projectCard.style.animation = "projectCard__appear 0.5s ease-out 1 forwards";
+        }
+        else {
+            projectCard.style.animation = "projectCard__disappear 0.5s ease-out 1 forwards";
+        }
+    });
 });
 
 // Drop down menu
@@ -65,7 +75,7 @@ const dropdownHandler = () => {
     }
 };
 
-// grid
+// // grid
 var $cell = $('.section__projectCard');
 
 //open and close card when clicked on card
@@ -109,6 +119,19 @@ const closeForm = () => {
         projectForm.style.display = "none";
         projectForm.parentElement.style.display = "none";
     }, 300);
+};
+
+const projectFormCheck = (e) => {
+    const textArea = e.target;
+    const submitBtn = e.target.parentElement.lastElementChild;
+    if (textArea.value.split(" ", "\n").length >= 10) {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove("projectForm__disabledBtn");
+    }
+    else {
+        submitBtn.disabled = true;
+        submitBtn.classList.add("projectForm__disabledBtn");
+    }
 };
 
 // profile menu handling

@@ -34,7 +34,7 @@
   padding: 8px 10px;
   border-radius: 50%;
   color: white;
-  background-color: #46a2fd;
+  background-color: #2a4ba5;
   transition: all 0.5s;
 }
 
@@ -79,7 +79,7 @@
   font-size: 18px;
   font-weight: bold;
   color: white;
-  background-color: #46a2fd;
+  background-color: #2a4ba5;
   align-self: center;
   padding: 10px 50px;
   border-radius: 5px;
@@ -94,6 +94,16 @@
 .projectForm > button:hover {
   filter: brightness(90%);
   transform: scale(1.01) !important;
+}
+
+.projectForm__disabledBtn {
+  cursor: default !important;
+  background-color: lightgray !important;
+}
+
+.projectForm__disabledBtn:hover {
+  filter: brightness(100%) !important;
+  transform: scale(1) !important;
 }
 
 .projectForm > input {

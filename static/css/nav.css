@@ -10,8 +10,7 @@ nav {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   background: url("/images/bg_map.png") fixed no-repeat center center / cover,
-    rgba(0, 0, 0, 0) linear-gradient(135deg, #584bfb 0%, #45aafd 99%) repeat
-      scroll 0 0;
+    rgba(0, 0, 0, 0) linear-gradient(45deg, black, #2a4ba5) repeat scroll 0 0;
   animation: nav__appear 0.4s ease-out 1;
   z-index: 2;
 }
@@ -33,7 +32,7 @@ nav i {
 }
 
 .nav__onScroll i {
-  color: #46a2fd;
+  color: #2a4ba5;
 }
 
 /* Nav Links */
@@ -49,7 +48,7 @@ nav i {
 }
 
 .nav__onScroll .nav__link {
-  color: #46a2fd;
+  color: #2a4ba5;
 }
 
 .nav__activeLink {
@@ -58,7 +57,7 @@ nav i {
 }
 
 .nav__onScroll .nav__activeLink {
-  border-bottom: 4px solid #46a2fd;
+  border-bottom: 4px solid #2a4ba5;
 }
 
 .nav__link:hover {
@@ -130,7 +129,7 @@ nav i {
 }
 
 .nav__dropdownOnScroll {
-  background-color: #45aafd;
+  background-color: #2a4ba5;
 }
 
 .nav__dropdownOnScroll .nav__menuItem,
@@ -142,7 +141,7 @@ nav i {
   display: flex;
   align-items: center;
   font-size: 15px;
-  color: grey;
+  color: #5f5f60;
   font-weight: bold;
   padding: 10px;
   padding-right: 50px;
@@ -155,7 +154,7 @@ nav i {
 
 .nav__menuItem > i {
   font-size: 20px;
-  color: grey;
+  color: #5f5f60;
   margin: 0;
   margin-right: 10px;
 }
