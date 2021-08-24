@@ -15,7 +15,7 @@ const scrollToTop = () => {
 
 window.addEventListener("scroll", () => {
     // scroll to top button
-    if (window.scrollY > 0) {
+    if (window.scrollY > 2) {
         // nav
         nav.style.display = "none";
         navScroll.style.display = "flex";
