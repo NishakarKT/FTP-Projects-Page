@@ -506,7 +506,6 @@ section > h1 > i {
   margin: 10px;
   justify-self: flex-start;
   transition: filter 0.5s;
-  opacity: 0;
 }
 
 .section__projectCard:nth-of-type(3n + 2) .section__projectDetails {

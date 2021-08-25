@@ -6,7 +6,7 @@ const nav = document.querySelector("nav");
 const navScroll = document.querySelector(".nav__onScroll");
 const navDropdown = document.querySelector(".nav__dropdown");
 const projectForm = document.querySelector(".projectForm");
-const projectCards = Array.from(document.getElementsByClassName("section__projectCard"));
+const pastProjectCards = Array.from(document.getElementsByClassName("section__pastProjectCard"));
 
 // scroll events
 const scrollToTop = () => {
@@ -51,7 +51,7 @@ window.addEventListener("scroll", () => {
         profileMenu.style.transform = "scale(0)";
     }
     // card transitions
-    projectCards.map(projectCard => {
+    pastProjectCards.map(projectCard => {
         if (projectCard.getBoundingClientRect().y < projectCard.clientHeight + 150) {
             projectCard.style.animation = "projectCard__appear 0.5s ease-out 1 forwards";
         }
