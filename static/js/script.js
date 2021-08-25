@@ -126,7 +126,7 @@ const closeForm = () => {
 const projectFormCheck = (e) => {
     const textArea = e.target;
     const submitBtn = e.target.parentElement.lastElementChild;
-    if (textArea.value.split(" ", "\n").length >= 10) {
+    if (textArea.value.split(" ").length >= 250) {
         submitBtn.disabled = false;
         submitBtn.classList.remove("projectForm__disabledBtn");
     }
