@@ -97,20 +97,26 @@
     </div>
 
     <div class="projectFormContainer">
-        <form class="projectForm">
+        <div class="projectForm">
             <i class="fa fa-close" onclick="closeForm()" style="background-color: red;"></i>
             <h1>Project Name</h1>
             <h2>Indian Institute of Technology, Kharagpur</h2>
-            <textarea type="text"
+            <textarea class="projectForm__ftpSOP" type="text"
                 placeholder="Write a statement of importance of the proposed research to your future in 250 words."
-                onkeyup="projectFormCheck(event)"></textarea>
+                onkeyup="wordCountCheck()"></textarea>
             <input type="file" class="section__uploadFileInput" onchange="changedFile(event)" />
-            <button class="section__uploadFileBtn" style="background-color: green;" onclick="uploadFile(event)">Apply
+            <button class="project__uploadFileBtn" style="background-color: green;" onclick="uploadFile(event)">Apply
                 with a different
                 CV</button>
             <p>(optional)</p>
-            <button type="submit" class="projectForm__disabledBtn" disabled>Submit</button>
-        </form>
+            <div class="projectForm__wordCountAlert">
+                <p>word count: 0</p>
+                <p>(min: 250)</p>
+            </div>
+            <button class="projectForm__submitBtn projectForm__disabledBtn" onmouseenter="openWordCountAlert(event)"
+                onclick="submitProjectForm(event)" onmouseleave="closeWordCountAlert()"
+                onblur="closeWordCountAlert()">Submit</button>
+        </div>
     </div>
 
     <section>

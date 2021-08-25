@@ -877,15 +877,15 @@ section > h1 > i {
   position: fixed;
   top: 0;
   left: 0;
-  display: none;
   place-items: center;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 5;
-  opacity: 0;
   overflow-x: hidden;
   overflow-y: auto;
+  display: none;
+  opacity: 0;
 }
 
 .projectForm {
@@ -903,8 +903,8 @@ section > h1 > i {
 
 .projectForm i {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: -15px;
+  right: -15px;
   cursor: pointer;
   padding: 8px 10px;
   border-radius: 50%;
@@ -941,16 +941,33 @@ section > h1 > i {
   padding: 5px;
   font-size: 15px;
   font-family: "Roboto";
+  margin-bottom: 10px;
 }
 
 .projectForm > p {
   color: rgb(83, 83, 83);
   font-size: 15px;
   font-weight: bold;
-  margin-top: 5px;
+  margin: 5px 0;
 }
 
-.projectForm > button {
+.projectForm__wordCountAlert {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px 20px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 65px;
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.5s;
+}
+
+.projectForm__submitBtnWrapper {
+  background-color: yellow;
+}
+
+.projectForm button {
   font-size: 18px;
   font-weight: bold;
   color: white;
@@ -962,11 +979,10 @@ section > h1 > i {
   border: none;
   outline: none;
   transition: all 0.5s;
-  margin-top: 10px;
   white-space: nowrap;
 }
 
-.projectForm > button:hover {
+.projectForm button:hover {
   filter: brightness(90%);
   transform: scale(1.01) !important;
 }
@@ -979,6 +995,7 @@ section > h1 > i {
 .projectForm__disabledBtn:hover {
   filter: brightness(100%) !important;
   transform: scale(1) !important;
+  cursor: not-allowed !important;
 }
 
 .projectForm > input {

@@ -6,6 +6,9 @@ const nav = document.querySelector("nav");
 const navScroll = document.querySelector(".nav__onScroll");
 const navDropdown = document.querySelector(".nav__dropdown");
 const projectForm = document.querySelector(".projectForm");
+const ftpSOP = document.querySelector(".projectForm__ftpSOP");
+const wordCountAlert = document.querySelector(".projectForm__wordCountAlert");
+const submitBtn = document.querySelector(".projectForm__submitBtn");
 const pastProjectCards = Array.from(document.getElementsByClassName("section__pastProjectCard"));
 
 // scroll events
@@ -115,7 +118,7 @@ const openForm = () => {
     projectForm.parentElement.style.opacity = "1";
     console.log(projectForm.querySelector("input"));
     projectForm.querySelector("input").value = "";
-    projectForm.querySelector(".section__uploadFileBtn").innerText = "Apply with a different CV";
+    projectForm.querySelector(".project__uploadFileBtn").innerText = "Apply with a different CV";
 };
 
 const closeForm = () => {
@@ -126,15 +129,35 @@ const closeForm = () => {
     }, 300);
 };
 
-const projectFormCheck = (e) => {
-    const textArea = e.target;
-    const submitBtn = e.target.parentElement.lastElementChild;
-    if (textArea.value.split(" ").length >= 250) {
-        submitBtn.disabled = false;
+const submitProjectForm = (e) => {
+    if (e.target.classList.contains("projectForm__disabledBtn"))
+        openWordCountAlert(e);
+    else {
+        window.location.reload();
+    }
+}
+
+const openWordCountAlert = (e) => {
+    if (e.target.classList.contains("projectForm__disabledBtn")) {
+        const wordCount = ftpSOP.value.split(" ").length - 1;
+        wordCountAlert.firstElementChild.innerText = "word count: " + wordCount;
+        wordCountAlert.style.zIndex = "1";
+        wordCountAlert.style.opacity = "1";
+    }
+};
+
+const closeWordCountAlert = () => {
+    wordCountAlert.style.opacity = "0";
+    wordCountAlert.style.zIndex = "-1";
+};
+
+const wordCountCheck = () => {
+    const wordCount = ftpSOP.value.split(" ").length - 1;
+
+    if (wordCount >= 250) {
         submitBtn.classList.remove("projectForm__disabledBtn");
     }
     else {
-        submitBtn.disabled = true;
         submitBtn.classList.add("projectForm__disabledBtn");
     }
 };
