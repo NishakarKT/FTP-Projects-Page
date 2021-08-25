@@ -113,6 +113,9 @@ const openForm = () => {
     projectForm.parentElement.style.display = "grid";
     projectForm.style.animation = "form__appear 0.3s ease-out 1 forwards";
     projectForm.parentElement.style.opacity = "1";
+    console.log(projectForm.querySelector("input"));
+    projectForm.querySelector("input").value = "";
+    projectForm.querySelector(".section__uploadFileBtn").innerText = "Apply with a different CV";
 };
 
 const closeForm = () => {
