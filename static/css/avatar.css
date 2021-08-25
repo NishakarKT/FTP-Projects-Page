@@ -22,12 +22,13 @@
   display: flex;
   align-items: center;
   color: #2a4ba5;
-  font-weight: bold;
+  font-weight: 500;
   white-space: nowrap;
 }
 
 .nav__onScroll .nav__avatar > span {
   color: white;
+  font-weight: 400;
 }
 
 .nav__avatar > img {
