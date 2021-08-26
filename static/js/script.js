@@ -5,10 +5,12 @@ const profileMenu = document.querySelector(".profileMenu");
 const nav = document.querySelector("nav");
 const navScroll = document.querySelector(".nav__onScroll");
 const navDropdown = document.querySelector(".nav__dropdown");
+const navDropdownBtn = document.querySelector(".nav__dropdownBtn");
 const projectForm = document.querySelector(".projectForm");
 const ftpSOP = document.querySelector(".projectForm__ftpSOP");
 const wordCountAlert = document.querySelector(".projectForm__wordCountAlert");
 const submitBtn = document.querySelector(".projectForm__submitBtn");
+const projectCards = Array.from(document.getElementsByClassName("section__projectCard"));
 const pastProjectCards = Array.from(document.getElementsByClassName("section__pastProjectCard"));
 
 // scroll events
@@ -18,29 +20,21 @@ const scrollToTop = () => {
 
 window.addEventListener("scroll", () => {
     // scroll to top button
-    if (window.scrollY > 2) {
+    if (window.scrollY > 0) {
         // nav
         nav.style.display = "none";
         navScroll.style.display = "flex";
         navDropdown.classList.add("nav__dropdownOnScroll");
-        // scroll to top button
+        // floating buttons
         scrollToTopBtn.style.transform = "scale(1)";
-        profileBtn.style.transform = "scale(1)";
-        profileMenu.style.transform = "scale(1)";
         // footer-nav
         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 1) {
             setTimeout(() => navScroll.style.display = "none", 500);
             navScroll.style.animation = "nav__disappear 0.5s ease-out 1";
-            scrollToTopBtn.style.transform = "scale(0)";
-            profileBtn.style.transform = "scale(0)";
-            profileMenu.style.transform = "scale(0)";
         }
         else {
             navScroll.style.display = "flex";
             navScroll.style.animation = "nav__appear 0.5s ease-out 1";
-            scrollToTopBtn.style.transform = "scale(1)";
-            profileBtn.style.transform = "scale(1)";
-            profileMenu.style.transform = "scale(1)";
         }
     }
     else {
@@ -48,7 +42,7 @@ window.addEventListener("scroll", () => {
         nav.style.display = "flex";
         navScroll.style.display = "none";
         navDropdown.classList.remove("nav__dropdownOnScroll");
-        // scroll to top button
+        // floating buttons
         scrollToTopBtn.style.transform = "scale(0)";
         profileBtn.style.transform = "scale(0)";
         profileMenu.style.transform = "scale(0)";
@@ -63,52 +57,37 @@ window.addEventListener("scroll", () => {
         }
     });
 });
-// cards transitions fix on page reload
-window.scrollBy(0, 1);
 
-// Drop down menu
-const dropdownHandler = () => {
-    const display = navDropdown.style.display;
-    if (!display || display === "none") {
-        navDropdown.style.display = "flex";
-        navDropdown.style.animation = "dropdown__appear 0.5s ease-out 1 forwards";
-        navDropdown.focus();
-    }
-    else {
-        setTimeout(() => navDropdown.style.display = "none", 500);
-        navDropdown.style.animation = "dropdown__disappear 0.5s ease-out 1 forwards";
-    }
-};
-
-// // grid
-var $cell = $('.section__projectCard');
-
-//open and close card when clicked on card
-$cell.find('.js-expander').on("click", function () {
-    var $thisCell = $(this).closest('.section__projectCard');
-    if ($thisCell.hasClass('is-collapsed')) {
-        $cell.not($thisCell).removeClass('is-expanded').addClass('is-collapsed').addClass('is-inactive');
-        $thisCell.removeClass('is-collapsed').addClass('is-expanded');
-        window.scrollBy(0, 300);
-
-        if ($cell.not($thisCell).hasClass('is-inactive')) {
-            //do nothing
-        } else {
-            $cell.not($thisCell).addClass('is-inactive');
+// grid
+projectCards.map(projectCard => {
+    projectCard.querySelector(".js-expander").addEventListener("click", () => {
+        if (projectCard.classList.contains("is-collapsed")) {
+            window.scrollBy(0, 300);
+            projectCards.map(projectCard => {
+                projectCard.classList.remove("is-expanded");
+                projectCard.classList.add("is-collapsed");
+                projectCard.style.zIndex = 0;
+            });
+            projectCard.classList.remove("is-collapsed");
+            projectCard.classList.add("is-expanded");
+            projectCard.style.zIndex = 1;
         }
-    } else {
-        $thisCell.removeClass('is-expanded').addClass('is-collapsed');
-        $cell.not($thisCell).removeClass('is-inactive');
-    }
+        else {
+            window.scrollBy(0, -300);
+            projectCard.classList.remove("is-expanded");
+            projectCard.classList.add("is-collapsed");
+            projectCard.style.zIndex = 0;
+        }
+    });
+
+    projectCard.querySelector(".js-collapser").addEventListener("click", () => {
+        window.scrollBy(0, -300);
+        projectCard.classList.remove("is-expanded");
+        projectCard.classList.add("is-collapsed");
+        projectCard.style.zIndex = 0;
+    });
 });
 
-//close card when click on cross
-$cell.find('.js-collapser').on("click", function () {
-    window.scrollBy(0, -300);
-    var $thisCell = $(this).closest('.section__projectCard');
-    $thisCell.removeClass('is-expanded').addClass('is-collapsed');
-    $cell.not($thisCell).removeClass('is-inactive');
-});
 
 // form handling
 const openForm = () => {
@@ -165,15 +144,33 @@ const wordCountCheck = () => {
 // profile menu handling
 const openProfileMenu = () => {
     profileMenu.classList.remove("profileMenuInactive");
+    profileMenu.classList.add("profileMenuActive");
     profileBtn.removeEventListener("click", openProfileMenu);
     profileBtn.addEventListener("click", closeProfileMenu);
 };
 const closeProfileMenu = () => {
+    profileMenu.classList.remove("profileMenuActive");
     profileMenu.classList.add("profileMenuInactive");
     profileBtn.removeEventListener("click", closeProfileMenu);
     profileBtn.addEventListener("click", openProfileMenu);
 };
 profileMenu.addEventListener("click", closeProfileMenu);
+
+// Drop down menu
+let dropdownTimeout;
+const dropdownHandler = () => {
+    const display = navDropdown.style.display;
+    if (!display || display === "none") {
+        navDropdown.style.display = "flex"
+        navDropdown.style.animation = "nav__dropdownAppear 0.2s ease-out 1 forwards";
+    }
+    else {
+        clearTimeout(dropdownTimeout);
+        dropdownTimeout = setTimeout(() => navDropdown.style.display = "none", 200);
+        navDropdown.style.animation = "nav__dropdownDisappear 0.2s ease-out 1 forwards";
+    }
+};
+navDropdown.addEventListener("click", dropdownHandler);
 
 // upload file
 const truncate = (str, n) => {

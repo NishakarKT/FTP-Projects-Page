@@ -9,11 +9,11 @@
   /* Removing blue highlight on touch*/
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
-  -webkit-user-select: none;
+  /* -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none;
+  user-select: none; */
 }
 
 /* *********** Main *********** */
@@ -150,7 +150,7 @@ nav i {
 .nav__dropdown {
   position: fixed;
   top: 55px;
-  right: 30px;
+  right: 25px;
   background-color: white;
   display: none;
   flex-direction: column;
@@ -162,7 +162,6 @@ nav i {
   outline: none;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-  animation: dropdown__appear 0.5s ease-out 1 forwards;
   z-index: 2;
 }
 
@@ -186,8 +185,12 @@ nav i {
   white-space: nowrap;
 }
 
-.nav__activeMenuItem {
+.nav__menuItem:active {
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.nav__activeMenuItem {
+  background-color: rgba(0, 0, 0, 0.15);
 }
 
 .nav__menuItem > i {
@@ -212,18 +215,18 @@ nav i {
   }
 }
 
-@keyframes dropdown__appear {
+@keyframes nav__dropdownAppear {
   from {
     opacity: 0;
     transform: translateY(-10px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0px);
   }
 }
 
-@keyframes dropdown__disappear {
+@keyframes nav__dropdownDisappear {
   from {
     opacity: 1;
     transform: translateY(0px);
@@ -350,6 +353,7 @@ nav i {
     display: none !important;
   }
   .profileBtn {
+    transform: scale(1) !important;
     display: inline !important;
   }
 }
@@ -414,18 +418,24 @@ nav i {
   border: 2px solid white;
   border-radius: 5px;
   z-index: 2;
-  transform: scale(0);
   transition: all 0.5s;
 }
 
+.profileMenuActive {
+  opacity: 1 !important;
+  transform: translateX(0) translateY(0) scale(1) !important;
+}
+
 .profileMenuInactive {
-  transform: scale(0) !important;
+  opacity: 0 !important;
+  transform: translateX(50px) translateY(50px) scale(0) !important;
 }
 
 .profileMenu > a {
   padding: 10px;
   padding-right: 30px;
   color: white;
+  font-weight: 500;
 }
 
 .profileMenu > a > i {
@@ -447,7 +457,7 @@ section {
   width: 100vw;
   background-color: white;
   z-index: 1;
-  padding-top: 100px;
+  padding-top: 50px;
   padding-bottom: 100px;
 }
 
@@ -506,10 +516,6 @@ section > h1 > i {
   margin: 10px;
   justify-self: flex-start;
   transition: filter 0.5s;
-}
-
-.section__projectCard:nth-of-type(3n + 2) .section__projectDetails {
-  /* justify-self: flex-start; */
 }
 
 .section__projectCardInner {
@@ -903,13 +909,13 @@ section > h1 > i {
 
 .projectForm i {
   position: absolute;
-  top: -15px;
-  right: -15px;
+  top: 5px;
+  right: 5px;
   cursor: pointer;
   padding: 8px 10px;
   border-radius: 50%;
   color: white;
-  background-color: #2a4ba5;
+  background-color: red;
   transition: all 0.5s;
 }
 
@@ -1127,7 +1133,7 @@ footer {
 }
 
 .footer__parallax {
-  height: 60vh;
+  height: 50vh;
 }
 
 .footer__container {
@@ -1184,7 +1190,7 @@ footer {
 }
 
 .footer__section > a:hover {
-  transform: translateX(10px);
+  filter: brightness(80%);
 }
 
 .footer__section > p > i,
@@ -1207,7 +1213,7 @@ footer {
 }
 
 .footer__icons > i:hover {
-  transform: scale(1.05) translateY(5px);
+  filter: brightness(80%);
 }
 
 /* Media queries */
@@ -1285,7 +1291,7 @@ footer {
 
 @media only screen and (max-width: 270px) {
   .footer__links {
-    flex-direction: column;
+    flex-direction: row;
   }
 }
 
@@ -1312,13 +1318,13 @@ footer {
 }
 
 /* parallax adjustment with screen height */
-@media only screen and (max-height: 500px) {
-  .footer__parallax {
-    height: calc(100vh);
-  }
-}
 @media only screen and (max-height: 400px) {
   .footer__parallax {
-    height: calc(100vh + 110px);
+    height: 60vh;
+  }
+}
+@media only screen and (max-height: 300px) {
+  .footer__parallax {
+    height: 100vh;
   }
 }

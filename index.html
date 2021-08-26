@@ -7,12 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/images/irc_icon.png" />
     <title>International Relations Cell</title>
-    <!-- fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
     <!-- styles -->
     <link rel="stylesheet" href="static/css/style.css" />
-    <!-- jquery  -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- fonts & icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <script src="https://kit.fontawesome.com/f784174103.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -46,7 +45,7 @@
         </div>
         <div class="nav__right">
             <i class="far fa-bell"></i>
-            <i class="fas fa-bars" onclick="dropdownHandler()"></i>
+            <i class="fas fa-bars nav__dropdownBtn" onclick="dropdownHandler()"></i>
         </div>
     </nav>
     <nav class="nav__onScroll">
@@ -69,7 +68,7 @@
         </div>
     </nav>
 
-    <div class="nav__dropdown" onblur="dropdownHandler()" tabindex="0">
+    <div class="nav__dropdown">
         <a href="#" class="nav__menuItem nav__activeMenuItem">
             <i class="fas fa-home"></i>
             <span>Home</span>
@@ -90,15 +89,11 @@
             <i class="fas fa-envelope-open-text"></i>
             <span>Contact Us</span>
         </a>
-        <a href="#" class="nav__menuItem">
-            <i class="fas fa-angle-double-right"></i>
-            <span>More</span>
-        </a>
     </div>
 
     <div class="projectFormContainer">
         <div class="projectForm">
-            <i class="fa fa-close" onclick="closeForm()" style="background-color: red;"></i>
+            <i class="fa fa-close" onclick="closeForm()"></i>
             <h1>Project Name</h1>
             <h2>Indian Institute of Technology, Kharagpur</h2>
             <textarea class="projectForm__ftpSOP" type="text"
@@ -937,6 +932,5 @@
 </body>
 
 <script src="static/js/script.js"></script>
-<script src="https://kit.fontawesome.com/f784174103.js" crossorigin="anonymous"></script>
 
 </html>
