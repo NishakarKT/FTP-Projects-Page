@@ -19,7 +19,6 @@ const scrollToTop = () => {
 };
 
 window.addEventListener("scroll", () => {
-    // scroll to top button
     if (window.scrollY > 0) {
         // nav
         nav.style.display = "none";
@@ -59,33 +58,44 @@ window.addEventListener("scroll", () => {
 });
 
 // grid
+let projectCardTimeout;
+let isOtherProjectOpen = false;
+
 projectCards.map(projectCard => {
     const projectDetails = projectCard.querySelector(".section__projectDetails");
     projectCard.querySelector(".js-expander").addEventListener("click", () => {
         if (projectCard.classList.contains("is-collapsed")) {
-            window.scrollTo(0, projectCard.offsetTop + 150);
             projectCards.map(projectCard => {
                 projectCard.classList.remove("is-expanded");
                 projectCard.classList.add("is-collapsed");
                 projectCard.style.zIndex = 0;
             });
-            projectCard.classList.remove("is-collapsed");
-            projectCard.classList.add("is-expanded");
-            projectCard.style.zIndex = 1;
+            clearTimeout(projectCardTimeout);
+            projectCardTimeout = setTimeout(() => {
+                projectCard.classList.remove("is-collapsed");
+                projectCard.classList.add("is-expanded");
+                projectCard.style.zIndex = 1;
+                window.scrollTo(0, projectCard.offsetTop + 200);
+            }, isOtherProjectOpen ? 500 : 0);
+
+            // switch isOtherProjectOpen
+            isOtherProjectOpen = true;
         }
         else {
-            window.scrollTo(0, projectCard.offsetTop - 150);
             projectCard.classList.remove("is-expanded");
             projectCard.classList.add("is-collapsed");
             projectCard.style.zIndex = 0;
+            window.scrollTo(0, projectCard.offsetTop - 200);
+            isOtherProjectOpen = false;
         }
     });
 
     projectCard.querySelector(".js-collapser").addEventListener("click", () => {
-        window.scrollTo(0, projectCard.offsetTop - 150);
         projectCard.classList.remove("is-expanded");
         projectCard.classList.add("is-collapsed");
         projectCard.style.zIndex = 0;
+        window.scrollTo(0, projectCard.offsetTop - 200);
+        isOtherProjectOpen = false;
     });
 });
 
