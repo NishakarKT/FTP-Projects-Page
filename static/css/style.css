@@ -528,7 +528,7 @@ section > h1 > i {
   background-color: transparent;
   color: #515153;
   font-size: 1.5em;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
   z-index: 2;
   border-radius: 10px;
@@ -539,7 +539,7 @@ section > h1 > i {
 }
 
 .section__projectCardInner:after {
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .section__projectCardInner > i {
@@ -633,7 +633,7 @@ section > h1 > i {
 
 .section__projectDetails {
   width: 100%;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
   position: relative;
   top: -10px;
   display: flex;

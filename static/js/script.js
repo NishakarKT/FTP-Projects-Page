@@ -76,7 +76,7 @@ projectCards.map(projectCard => {
                 projectCard.classList.add("is-expanded");
                 projectCard.style.zIndex = 1;
                 window.scrollTo(0, projectCard.offsetTop + 200);
-            }, isOtherProjectOpen ? 500 : 0);
+            }, isOtherProjectOpen ? 300 : 0);
 
             // switch isOtherProjectOpen
             isOtherProjectOpen = true;
