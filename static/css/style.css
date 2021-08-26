@@ -681,7 +681,7 @@ section > h1 > i {
   left: calc(50% - 15px);
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
-  border-bottom: 15px solid #5b5cfc;
+  border-bottom: 15px solid #2a4ba5;
 }
 
 .section__projectCard.is-expanded .section__projectCardInner .fa:before {

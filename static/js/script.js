@@ -60,9 +60,10 @@ window.addEventListener("scroll", () => {
 
 // grid
 projectCards.map(projectCard => {
+    const projectDetails = projectCard.querySelector(".section__projectDetails");
     projectCard.querySelector(".js-expander").addEventListener("click", () => {
         if (projectCard.classList.contains("is-collapsed")) {
-            window.scrollBy(0, 300);
+            window.scrollTo(0, projectCard.offsetTop + 150);
             projectCards.map(projectCard => {
                 projectCard.classList.remove("is-expanded");
                 projectCard.classList.add("is-collapsed");
@@ -73,7 +74,7 @@ projectCards.map(projectCard => {
             projectCard.style.zIndex = 1;
         }
         else {
-            window.scrollBy(0, -300);
+            window.scrollTo(0, projectCard.offsetTop - 150);
             projectCard.classList.remove("is-expanded");
             projectCard.classList.add("is-collapsed");
             projectCard.style.zIndex = 0;
@@ -81,7 +82,7 @@ projectCards.map(projectCard => {
     });
 
     projectCard.querySelector(".js-collapser").addEventListener("click", () => {
-        window.scrollBy(0, -300);
+        window.scrollTo(0, projectCard.offsetTop - 150);
         projectCard.classList.remove("is-expanded");
         projectCard.classList.add("is-collapsed");
         projectCard.style.zIndex = 0;
