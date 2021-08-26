@@ -62,7 +62,6 @@ let projectCardTimeout;
 let isOtherProjectOpen = false;
 
 projectCards.map(projectCard => {
-    const projectDetails = projectCard.querySelector(".section__projectDetails");
     projectCard.querySelector(".js-expander").addEventListener("click", () => {
         if (projectCard.classList.contains("is-collapsed")) {
             projectCards.map(projectCard => {
