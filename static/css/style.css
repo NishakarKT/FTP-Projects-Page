@@ -45,8 +45,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   background: url("/images/bg_map.png") fixed no-repeat center center / cover,
     rgba(0, 0, 0, 0) linear-gradient(45deg, black, #2a4ba5) repeat scroll 0 0;
   animation: nav__appear 0.4s ease-out 1;
@@ -112,16 +112,26 @@ nav i {
 
 /* Nav Left */
 .nav__left {
-  height: 70px;
-  width: 400px;
-  background: url("/images/irc_logo.png") no-repeat center center / contain;
-  margin-left: 40px;
-  transition: all 0.5s;
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
 }
 
-.nav__onScroll .nav__left {
-  background: url("/images/irc_logo2.png") no-repeat center center / contain;
+.nav__logo {
+  height: 50px;
+  object-fit: contain;
+}
+
+.nav__title {
+  font-size: 32px;
+  font-weight: 500;
+  color: white;
+  margin-left: 5px;
+  white-space: nowrap;
+}
+
+.nav__onScroll .nav__title {
+  color: #2a4ba5 !important;
 }
 
 /* Nav Mid */
@@ -251,20 +261,31 @@ nav i {
 
 /* Media queries */
 
-@media only screen and (max-width: 1100px) {
-  .nav__left {
-    width: 100px;
-    background: url("/images/irc_logo_res.png") no-repeat center center /
-      contain;
-    margin-left: 20px;
+@media only screen and (max-width: 1140px) {
+  .nav__logo {
+    height: 45px;
   }
-  .nav__onScroll .nav__left {
-    background: url("/images/irc_logo_res2.png") no-repeat center center /
-      contain;
+  .nav__title {
+    font-size: 28px;
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1080px) {
+  .nav__logo {
+    height: 40px;
+  }
+  .nav__title {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 1030px) {
+  .nav__logo {
+    height: 50px;
+  }
+  .nav__title {
+    font-size: 30px;
+  }
   .nav__mid {
     display: none;
   }
@@ -272,6 +293,87 @@ nav i {
     display: flex;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .nav__logo {
+    height: 40px;
+  }
+  .nav__title {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 490px) {
+  nav {
+    height: 55px;
+  }
+  .nav__left {
+    margin-left: 10px;
+  }
+  .nav__right {
+    margin-right: 0px;
+  }
+  .nav__logo {
+    height: 35px;
+  }
+  .nav__title {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .nav__left {
+    margin-left: 5px;
+  }
+  .nav__logo {
+    height: 30px;
+  }
+  .nav__title {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  nav {
+    height: 45px;
+  }
+  .nav__left {
+    margin-left: 5px;
+  }
+  .nav__right i {
+    font-size: 20px;
+  }
+  .nav__logo {
+    height: 25px;
+  }
+}
+
+@media only screen and (max-width: 290px) {
+  nav {
+    height: 40px;
+  }
+  .nav__logo {
+    display: none;
+  }
+  .nav__right i {
+    margin-right: 5px;
+  }
+  .nav__title {
+    margin-left: 0;
+  }
+}
+
+/* @media only screen and (max-width: 430px) {
+  .nav__left {
+    margin-left: 5px;
+  }
+  .nav__logo {
+    height: 30px;
+  }
+  .nav__title {
+    font-size: 18px;
+  }
+} */
 
 /* *********** Floating Button *********** */
 
@@ -1267,18 +1369,9 @@ footer {
   .footer__container > .footer__section {
     width: 95%;
   }
-  .footer__links {
-    flex-direction: row;
-  }
 }
 
 @media only screen and (max-width: 270px) {
-  .footer__links {
-    flex-direction: row;
-  }
-}
-
-@media only screen and (max-width: 230px) {
   .footer__section {
     margin: 0 10px;
   }
@@ -1328,17 +1421,12 @@ footer {
 }
 @media only screen and (max-width: 370px) {
   .footer__parallax {
-    height: 60vh;
+    height: 100vh;
   }
 }
-@media only screen and (max-width: 280px) {
+@media only screen and (max-width: 270px) {
   .footer__parallax {
-    height: 65vh;
-  }
-}
-@media only screen and (max-width: 230px) {
-  .footer__parallax {
-    height: 55vh;
+    height: 90vh;
   }
 }
 
