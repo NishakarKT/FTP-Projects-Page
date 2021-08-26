@@ -45,8 +45,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
   background: url("/images/bg_map.png") fixed no-repeat center center / cover,
     rgba(0, 0, 0, 0) linear-gradient(45deg, black, #2a4ba5) repeat scroll 0 0;
   animation: nav__appear 0.4s ease-out 1;
@@ -364,7 +363,7 @@ nav i {
     display: none;
   }
   .nav__right i {
-    margin-right: 5px;
+    margin-right: 10px;
   }
   .nav__dropdown {
     top: 35px;
@@ -374,18 +373,6 @@ nav i {
     margin-left: 0;
   }
 }
-
-/* @media only screen and (max-width: 430px) {
-  .nav__left {
-    margin-left: 5px;
-  }
-  .nav__logo {
-    height: 30px;
-  }
-  .nav__title {
-    font-size: 18px;
-  }
-} */
 
 /* *********** Floating Button *********** */
 
