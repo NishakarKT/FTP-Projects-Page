@@ -23,7 +23,6 @@ window.addEventListener("scroll", () => {
         // nav
         nav.style.display = "none";
         navScroll.style.display = "flex";
-        navDropdown.classList.add("nav__dropdownOnScroll");
         // floating buttons
         scrollToTopBtn.style.transform = "scale(1)";
         // footer-nav
@@ -40,11 +39,8 @@ window.addEventListener("scroll", () => {
         // nav
         nav.style.display = "flex";
         navScroll.style.display = "none";
-        navDropdown.classList.remove("nav__dropdownOnScroll");
         // floating buttons
         scrollToTopBtn.style.transform = "scale(0)";
-        profileBtn.style.transform = "scale(0)";
-        profileMenu.style.transform = "scale(0)";
     }
     // card transitions
     pastProjectCards.map(projectCard => {

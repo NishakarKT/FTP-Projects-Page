@@ -169,18 +169,8 @@ nav i {
   transition: all 0.5s;
   border: none;
   outline: none;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   z-index: 2;
-}
-
-.nav__dropdownOnScroll {
-  background-color: #2a4ba5;
-}
-
-.nav__dropdownOnScroll .nav__menuItem,
-.nav__dropdownOnScroll .nav__menuItem i {
-  color: white;
 }
 
 .nav__menuItem {
@@ -515,11 +505,11 @@ nav i {
   right: 40px;
   display: flex;
   flex-direction: column;
-  background-color: #2a4ba5;
-  border: 2px solid white;
+  background-color: white;
   border-radius: 5px;
   z-index: 2;
   transition: all 0.5s;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .profileMenuActive {
@@ -535,7 +525,7 @@ nav i {
 .profileMenu > a {
   padding: 10px;
   padding-right: 30px;
-  color: white;
+  color: #5f5f60;
   font-size: 18px;
   font-weight: 500;
 }
@@ -1400,48 +1390,42 @@ footer {
 /* parallax adjustment with screen width */
 @media only screen and (max-width: 835px) {
   .footer__parallax {
-    height: 55vh;
-  }
-}
-@media only screen and (max-width: 730px) {
-  .footer__parallax {
-    height: 60vh;
+    height: 55vh !important;
   }
 }
 @media only screen and (max-width: 590px) {
   .footer__parallax {
-    height: 50vh;
+    height: 45vh !important;
   }
 }
-@media only screen and (max-width: 500px) {
-  .footer__parallax {
-    height: 55vh;
-  }
-}
+
 @media only screen and (max-width: 485px) {
   .footer__parallax {
-    height: 65vh;
+    height: 55vh !important;
   }
 }
+
 @media only screen and (max-width: 370px) {
   .footer__parallax {
-    height: 100vh;
+    height: 75vh !important;
   }
 }
+
+@media only screen and (max-width: 330px) {
+  .footer__parallax {
+    height: 85vh !important;
+  }
+}
+
 @media only screen and (max-width: 270px) {
   .footer__parallax {
-    height: 90vh;
+    height: 75vh !important;
   }
 }
 
 /* parallax adjustment with screen height */
-@media only screen and (max-height: 400px) {
+@media only screen and (max-height: 525px) {
   .footer__parallax {
     height: 60vh;
-  }
-}
-@media only screen and (max-height: 300px) {
-  .footer__parallax {
-    height: 100vh;
   }
 }
