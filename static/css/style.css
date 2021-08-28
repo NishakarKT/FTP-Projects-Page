@@ -1390,42 +1390,47 @@ footer {
 /* parallax adjustment with screen width */
 @media only screen and (max-width: 835px) {
   .footer__parallax {
-    height: 55vh !important;
+    height: 55vh;
   }
 }
 @media only screen and (max-width: 590px) {
   .footer__parallax {
-    height: 45vh !important;
+    height: 45vh;
   }
 }
 
 @media only screen and (max-width: 485px) {
   .footer__parallax {
-    height: 55vh !important;
+    height: 55vh;
   }
 }
 
 @media only screen and (max-width: 370px) {
   .footer__parallax {
-    height: 75vh !important;
+    height: 75vh;
   }
 }
 
 @media only screen and (max-width: 330px) {
   .footer__parallax {
-    height: 85vh !important;
+    height: 85vh;
   }
 }
 
 @media only screen and (max-width: 270px) {
   .footer__parallax {
-    height: 75vh !important;
+    height: 75vh;
   }
 }
 
 /* parallax adjustment with screen height */
-@media only screen and (max-height: 525px) {
+@media only screen and (max-height: 450px) {
   .footer__parallax {
-    height: 60vh;
+    height: 80vh !important;
+  }
+}
+@media only screen and (max-height: 350px) {
+  .footer__parallax {
+    height: 90vh !important;
   }
 }
