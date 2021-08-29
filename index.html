@@ -15,10 +15,10 @@
 </head>
 
 <body>
-    <i class="fas fa-arrow-up scrollToTopBtn" tabindex="0" onclick="scrollToTop()"></i>
-    <i class="fas fa-user-tie profileBtn" tabindex="0" onclick="openProfileMenu()"></i>
+    <i class="fas fa-arrow-up scrollToTopBtn" onclick="scrollToTop()" tabindex="0"></i>
+    <i class="fas fa-user-tie profileBtn" onclick="profileMenuHandler()" tabindex="0"></i>
 
-    <div class="profileMenu profileMenuInactive">
+    <div class="profileMenu">
         <a href="#">
             <i class="fas fa-user-tie"></i>
             <span>Profile</span>
@@ -31,22 +31,14 @@
 
     <nav>
         <div class="nav__left">
-            <img class="nav__logo" src="/images/ftp_logo.png" alt="" />
+            <a href="/"><img class="nav__logo" src="/images/ftp_logo.png" alt="" /></a>
             <p class="nav__title">Foreign Training Program</p>
         </div>
-        <div class="nav__mid">
-            <a href="#" class="nav__link nav__activeLink">Home</a>
-            <a href="#" class="nav__link">About Us</a>
-            <a href="#" class="nav__link">Testimonials</a>
-            <a href="#" class="nav__link">F.A.Q</a>
-            <a href="#" class="nav__link">Contact Us</a>
-            <i class="far fa-bell"></i>
-            <div class="nav__avatar">
+        <div class="nav__right">
+            <div class="nav__avatar" onclick="profileMenuHandler()">
                 <img src="/images/iit_kgp.jpg" alt="" />
                 <span>user's first name</span>
             </div>
-        </div>
-        <div class="nav__right">
             <i class="fas fa-bars nav__dropdownBtn" onclick="dropdownHandler()"></i>
         </div>
     </nav>
@@ -56,39 +48,39 @@
             <img class="nav__logo" src="/images/ftp_logo2.png" alt="" />
             <p class="nav__title">Foreign Training Program</p>
         </div>
-        <div class="nav__mid">
-            <a href="#" class="nav__link nav__activeLink">Home</a>
-            <a href="#" class="nav__link">About Us</a>
-            <a href="#" class="nav__link">Testimonials</a>
-            <a href="#" class="nav__link">F.A.Q</a>
-            <a href="#" class="nav__link">Contact Us</a>
-            <i class="far fa-bell"></i>
-            <div class="nav__avatar">
+        <div class="nav__right">
+            <div class="nav__avatar" onclick="profileMenuHandler()">
                 <img src="/images/iit_kgp.jpg" alt="" />
                 <span>user's first name</span>
             </div>
-        </div>
-        <div class="nav__right">
             <i class="fas fa-bars nav__dropdownBtn" onclick="dropdownHandler()"></i>
         </div>
     </nav>
 
     <div class="nav__dropdown">
         <a href="#" class="nav__menuItem nav__activeMenuItem">
-            <i class="fas fa-home"></i>
-            <span>Home</span>
+            <i class="fas fa-project-diagram"></i>
+            <span>Projects</span>
         </a>
         <a href="#" class="nav__menuItem">
-            <i class="fas fa-users"></i>
-            <span>About Us</span>
+            <i class="fas fa-graduation-cap"></i>
+            <span>Scholarships</span>
         </a>
         <a href="#" class="nav__menuItem">
-            <i class="fas fa-comment-dots"></i>
-            <span>Testimonials</span>
+            <i class="fas fa-user"></i>
+            <span>Applied Projects</span>
         </a>
         <a href="#" class="nav__menuItem">
-            <i class="fas fa-question"></i>
-            <span>F.A.Q</span>
+            <i class="fas fa-user-graduate"></i>
+            <span>Applied Scholarships</span>
+        </a>
+        <a href="#" class="nav__menuItem">
+            <i class="fas fa-bookmark"></i>
+            <span>Bookmarks</span>
+        </a>
+        <a href="#" class="nav__menuItem">
+            <i class="fas fa-poll"></i>
+            <span>Results</span>
         </a>
         <a href="#" class="nav__menuItem">
             <i class="fas fa-envelope-open-text"></i>

@@ -1,5 +1,4 @@
 // DOM Elements
-const profileBtn = document.querySelector(".profileBtn");
 const scrollToTopBtn = document.querySelector(".scrollToTopBtn");
 const profileMenu = document.querySelector(".profileMenu");
 const nav = document.querySelector("nav");
@@ -147,19 +146,20 @@ const wordCountCheck = () => {
 };
 
 // profile menu handling
-const openProfileMenu = () => {
-    profileMenu.classList.remove("profileMenuInactive");
-    profileMenu.classList.add("profileMenuActive");
-    profileBtn.removeEventListener("click", openProfileMenu);
-    profileBtn.addEventListener("click", closeProfileMenu);
+let profileMenuTimeout;
+const profileMenuHandler = () => {
+    const display = profileMenu.style.display;
+    if (!display || display === "none") {
+        profileMenu.style.display = "flex";
+        profileMenu.style.animation = window.innerWidth >= 800 ? "profileMenuAppear 0.2s ease-out 1 forwards" : "profileMenuAppear_phone 0.2s ease-out 1 forwards";
+    }
+    else {
+        clearTimeout(profileMenuTimeout);
+        profileMenuTimeout = setTimeout(() => profileMenu.style.display = "none", 200);
+        profileMenu.style.animation = window.innerWidth >= 800 ? "profileMenuDisappear 0.2s ease-out 1 forwards" : "profileMenuDisappear_phone 0.2s ease-out 1 forwards";
+    }
 };
-const closeProfileMenu = () => {
-    profileMenu.classList.remove("profileMenuActive");
-    profileMenu.classList.add("profileMenuInactive");
-    profileBtn.removeEventListener("click", closeProfileMenu);
-    profileBtn.addEventListener("click", openProfileMenu);
-};
-profileMenu.addEventListener("click", closeProfileMenu);
+profileMenu.addEventListener("click", profileMenuHandler);
 
 // Drop down menu
 let dropdownTimeout;
