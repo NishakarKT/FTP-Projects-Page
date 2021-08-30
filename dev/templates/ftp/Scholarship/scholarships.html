@@ -1,0 +1,125 @@
+{% extends 'ftp/base.html' %}
+{% load static %}
+
+{% block title %}Scholarships | FTP | International Relations Cell{% endblock %}
+
+{% block main %}
+<main>
+    <section>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %} style="text-align: center;">{{ message
+                }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <h1>Scholarships</i></h1>
+        {% if success %}
+        <h2>We'll be back with more scholarships soon!</h2>
+        {% else %}
+        {% endif %}
+        <div class="section__projects">
+            {% for p in allprojects %}
+            {% if p.display %}
+            <div class="section__projectCard [ is-collapsed ]" id="{{p.id}}">
+                <div class="section__projectCardInner">
+                    <p class=" section__projectCardTitle">{{p.scholarship_name}}</p>
+                    <p class="section__projectCardSecondaryText">{{p.funding_agency}}</p>
+                    <p class="section__projectCardDetail">{{p.scholarship_detail|truncatewords:'10'|slice:'-1'}}...</p>
+                    <hr />
+                    <p class="section__projectCardSubtitle">Deadline: {{p.deadline}}</p>
+                    <div class="section__tagsContainer">
+                        <p class="section__tag">Item 1</p>
+                        <p class="section__tag">Item 2</p>
+                        <p class="section__tag">Item 3</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                    </div>
+                    <p class="section__projectCardAction [ js-expander ]">Read more</p>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close [ js-collapser ]"></i>
+                    <h1>Project Details</h1>
+                    <p><b><i class="fas fa-file-signature"></i></i>Name: </b>{{p.scholarship_name}}</p>
+                    <p><b><i class="fas fa-university"></i></i>University: </b>{{p.funding_agency}}</p>
+                    <p><b><i class="fas fa-calendar-day"></i></i>Date: </b>Jan 1, 2022</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details: </b>{{p.scholarship_detail}}</p>
+                    <a href="apply/{{p.id}}" class="section__projectApplyBtn"><button>Apply</button></a>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        </div>
+    </section>
+
+    <!-- <div id="tabbed" class="services-section section-padding30 fix">
+        <div class="row">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %} style="text-align: center;">{{ message
+                    }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <div class="cell w-100">
+                <div class="title large">Scholarships</div>
+                <hr style="background-color:#FF9F67;text-align:center;margin:5px;">
+            </div>
+        </div>
+        {% if success %}
+        <div class="title normal">We'll be back with more scholarships soon!</div>
+        {% else %}
+        {% endif %}
+        {% for p in allprojects %}
+        {% if p.display %}
+        <div class="row" id="proj{{ p.id }}">
+            <div class="cell w-100">
+                <div class="collapsible">
+                    <button class="drop-tile" style="cursor:pointer; flex: 0 0 100%; padding-right: 20px;">
+                        <span class="lft">{{p.scholarship_name}}</span><span
+                            class="mid">{{p.funding_agency}}</span><span class="rgt">Deadline: {{p.deadline}}</span>
+                    </button>
+                </div>
+                <div class="content">
+                    <p style="padding: 20px; margin-bottom: 0;">
+                        <span class="title small">Scholarship Details</span><br>
+                        <br>
+                        {{p.scholarship_detail|linebreaks}}
+                    <div class="button">
+                        <a href="apply/{{p.id}}"><button type="button" class="btn btn-primary btn-lg myBtn">
+                                Apply
+                            </button></a>
+                    </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div> -->
+    <!-- Want To work End -->
+</main>
+{% endblock %}
+{% block js %}
+<!-- <script>
+    var coll = document.getElementsByClassName("drop-tile");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.parentElement.classList.toggle("active");
+        var content = this.parentElement.nextElementSibling;
+        if (content.style.maxHeight){
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    }
+</script> -->
+{% endblock %}

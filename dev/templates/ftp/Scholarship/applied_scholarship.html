@@ -1,0 +1,173 @@
+{% extends 'ftp/base.html' %}
+{% load static %}
+
+{% block title %}Applied Scholarships | FTP | International Relations Cell{% endblock %}
+
+{% block main %}
+<main>
+    <section>
+        <h1>Applied Scholarships</i></h1>
+        {% if success %}
+        <h2>No Scholarships Applied</h2>
+        {% else %}
+        {% endif %}
+        <div class="section__projects">
+            {% for p in allprojects %}
+            <div class="section__projectCard [ is-collapsed ]" id="{{p.id}}">
+                <div class="section__projectCardInner">
+                    <p class=" section__projectCardTitle">{{p.scholarship.scholarship_name}}</p>
+                    <p class="section__projectCardSecondaryText">{{p.Nameofhostinstitution}}</p>
+                    <p class="section__projectCardDetail">
+                        {{p.DetailsOfTheProposedResearch_or_professionalInternship|truncatewords:'10'|slice:'-1'}}...
+                    </p>
+                    <hr />
+                    <p class="section__projectCardSubtitle">Faculty Advisor: {{p.NameofFacultyAdvisor}}</p>
+                    <div class="section__tagsContainer">
+                        <p class="section__tag">Item 1</p>
+                        <p class="section__tag">Item 2</p>
+                        <p class="section__tag">Item 3</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                    </div>
+                    <p class="section__projectCardAction [ js-expander ]">Read more</p>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close [ js-collapser ]"></i>
+                    <h1>Project Details</h1>
+                    <p><b><i class="fas fa-file-signature"></i></i>Name: </b>{{p.scholarship.scholarship_name}}</p>
+                    <p><b><i class="fas fa-university"></i></i>University: </b>{{p.Nameofhostinstitution}}</p>
+                    <p><b><i class="fas fa-calendar-day"></i></i>Faculty Advisor: </b>{{p.NameofFacultyAdvisor}}</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details:
+                        </b>{{p.DetailsOfTheProposedResearch_or_professionalInternship}}</p>
+                    <button>View Application</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        </div>
+    </section>
+
+    <!-- <div id="tabbed" class="services-section section-padding30 fix">
+        <div class="row">
+            <div class="cell w-100">
+                <div class="title large">Applied Scholarships</div>
+                <hr style="background-color:#FF9F67;text-align:center;margin:5px;">
+            </div>
+        </div>
+        {% if success %}
+        <div class="title normal">No Scholarships Applied</div>
+        {% else %}
+        {% endif %}
+        {% for p in allprojects %}
+        <div class="row" id="proj{{ p.id }}">
+            <div class="cell w-100">
+                <div class="collapsible">
+                    <button class="drop-tile" style="cursor:pointer; flex: 0 0 100%; padding-right: 20px;">
+                        <span class="lft">{{p.scholarship.scholarship_name}}</span><span
+                            class="mid">{{p.NameofFacultyAdvisor}}</span><span
+                            class="rgt">{{p.Nameofhostinstitution}}</span>
+                    </button>
+                </div>
+                <div class="content">
+                    <p style="padding: 20px; margin-bottom: 0;">
+                        <span class="title small">Scholarship Details</span>
+                        {{ p.DetailsOfTheProposedResearch_or_professionalInternship|linebreaks }}
+                    <div class="button">
+                        <button type="button" class="btn btn-primary btn-lg myBtn" data-toggle="modal"
+                            data-target="#myModal{{p.id}}">
+                            View Application
+                        </button>
+                    </div>
+                    <div class="modal fade" id="myModal{{p.id}}" tabindex="-1" role="dialog"
+                        aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div class="modal-title">
+                                        <h3>Your Application</h3>
+                                    </div>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true" style="font-size: 20px;">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="modal-split">
+                                        <div style="font-size: 20px; margin-bottom: 10px; font-weight: 700;">SOP:</div>
+                                        <div style="text-align: center;">{{ p.sop|linebreaks }}</div>
+                                        <hr style="margin-left: 15%; margin-right: 15%;">
+                                        <div style="font-size: 20px; margin-bottom: 10px; font-weight: 700;">History of
+                                            Colabration</div>
+                                        <div style="text-align: center;">{{p.HistoryOfCollobration|linebreaks}}</div>
+                                        <hr style="margin-left: 15%; margin-right: 15%;">
+                                        <div style="font-size: 20px; margin-bottom: 10px; font-weight: 700;">
+                                            Justification of applying through the IITKGP Of USA AwardProgram</div>
+                                        <div style="text-align: center;">
+                                            {{p.Justification_of_applying_through_the_IITKGF_Of_USA_AwardProgram|linebreaks}}
+                                        </div>
+                                        <hr style="margin-left: 15%; margin-right: 15%;">
+                                        <div style="font-size: 20px; margin-bottom: 10px; font-weight: 700;">Engagement
+                                            with the Host Institute</div>
+                                        <div style="text-align: center;">
+                                            {{p.Explain_in_about_250_words_how_your_engagement_with_the_Host_Institute|linebreaks}}
+                                        </div>
+                                        <hr style="margin-left: 15%; margin-right: 15%;">
+                                        <div class="form-group" style="text-align: center;">
+                                            <a href="{% if p.cv %}{{ p.cv.url }}{% else %}{{ prof.url }}{% endif %}"
+                                                target="_blank">Click here to view CV</a>
+                                            <br><br>
+                                            <a href="{{ MEDIA_URL }}{{ p.Awards }}" target="_blank">Click here to view
+                                                Awards</a>
+                                            <br><br>
+                                            <a href="{{ MEDIA_URL }}{{ p.Transcripts }}" target="_blank">Click here to
+                                                view Transcripts</a>
+                                            <br><br>
+                                            <a href="{{ MEDIA_URL }}{{ p.NOC }}" target="_blank">Click here to view
+                                                NOC</a>
+                                            <br><br>
+                                            <a href="{{ MEDIA_URL }}{{ p.offer_letter }}" target="_blank">Click here to
+                                                view Offer Letter</a>
+                                            <br><br>
+                                            {% if p.fuding_proof %}
+                                            <a href="{{ MEDIA_URL }}{{ p.fuding_proof }}" target="_blank">Click here to
+                                                view Funding Proof(if any)</a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div> -->
+    <!-- Want To work End -->
+</main>
+{% endblock %}
+{% block js %}
+<!-- <script>
+    var coll = document.getElementsByClassName("drop-tile");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.parentElement.classList.toggle("active");
+            var content = this.parentElement.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+</script> -->
+{% endblock %}

@@ -1,0 +1,375 @@
+{% extends 'ftp/base.html' %}
+{% load static %}
+
+{% block title %}Projects | FTP | International Relations Cell{% endblock %}
+
+{% block main %}
+<main>
+    <!-- <script type="text/javascript" src="{% static 'ftp/ProjectsPage/js/modal.js' %}"></script> -->
+    <div class="projectFormContainer">
+        <form class="projectForm">
+            <i class="fa fa-close" onclick="closeForm()"></i>
+            <h1>Project Name</h1>
+            <h2>Indian Institute of Technology, Kharagpur</h2>
+            <textarea class="projectForm__ftpSOP" type="text"
+                placeholder="Write a statement of importance of the proposed research to your future in 250 words."
+                onkeyup="wordCountCheck()" name="ftpSOP"></textarea>
+            <input type="file" class="section__uploadFileInput" onchange="changedFile(event)" name="fileCV" />
+            <button class="project__uploadFileBtn" style="background-color: green;" onclick="uploadFile(event)">Apply
+                with a different
+                CV</button>
+            <p>(optional)</p>
+            <div class="projectForm__wordCountAlert">
+                <p>word count: 0</p>
+                <p>(min: 250)</p>
+            </div>
+            <button class="projectForm__submitBtn projectForm__disabledBtn" onmouseenter="openWordCountAlert(event)"
+                onclick="submitProjectForm(event)" onmouseleave="closeWordCountAlert()"
+                onblur="closeWordCountAlert()">Submit</button>
+        </form>
+    </div>
+
+    <section>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %} style="text-align: center;">{{ message
+                }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <h1>Projects</i></h1>
+        {% if success %}
+        <h2>We'll be back with more projects soon!</h2>
+        {% else %}
+        <div class="section__projects">
+            {% for p in allprojects %}
+            {% if p.display %}
+            {% if p.deadline >= date %}
+            <div class="section__projectCard [ is-collapsed ]" id="{{p.id}}">
+                <div class="section__projectCardInner">
+                    <i class="{% if p in bookmarks %}fas{% else %}far{% endif %} fa-bookmark bookmark"
+                        id="book{{ p.id }}"></i>
+                    <p class=" section__projectCardTitle">{{p.project_name}}</p>
+                    <p class="section__projectCardSecondaryText">{{p.university}}</p>
+                    <p class="section__projectCardDetail">{{p.project_detail|truncatewords:'10'|slice:'-1'}}...</p>
+                    <hr />
+                    <p class="section__projectCardSubtitle">Deadline: {{p.deadline}}</p>
+                    <div class="section__tagsContainer">
+                        <p class="section__tag">Item 1</p>
+                        <p class="section__tag">Item 2</p>
+                        <p class="section__tag">Item 3</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                    </div>
+                    <p class="section__projectCardAction [ js-expander ]">Read more</p>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close [ js-collapser ]"></i>
+                    <h1>Project Details</h1>
+                    <p><b><i class="fas fa-file-signature"></i></i>Name: </b>{{p.project_name}}</p>
+                    <p><b><i class="fas fa-university"></i></i>University: </b>{{p.university}}</p>
+                    <p><b><i class="fas fa-calendar-day"></i></i>Date: </b>Jan 1, 2022</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details: </b>{{p.project_detail}}</p>
+                    <p><b><i class="fas fa-calendar-alt"></i></i>Duration: </b>{{p.project_time}}</p>
+                    <p><b><i class="fas fa-puzzle-piece"></i>Pre-requisite: </b>{{p.prerequisite}}</p>
+                    <p><b><i class="fas fa-dollar-sign"></i>Stipend: </b>{{p.stipend}}</p>
+                    {% if not selected %}
+                    {% if p.reason is None %}
+                    <button onclick="openForm(event)">Apply</button>
+                    <!-- <div class="button">
+                        <button type="button" class="btn btn-primary btn-lg myBtn" data-toggle="modal"
+                        data-target="#myModal{{p.id}}">
+                        Apply
+                    </button>
+                </div> -->
+                    {% else %}
+                    <p style="text-align: center; color: red">{{p.reason}}</p>
+                    {% endif %}
+                    {% endif %}
+                    <button onclick="openForm(event)">Apply</button>
+                </div>
+            </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+        </div>
+        <h1>Past Projects</h1>
+        <div class="section__projects">
+            {% for pproj in pastproject %}
+            {% if pproj.display %}
+            {% if pproj.deadline < date %} <!-- <div class="section__projectCard">
+        </div> -->
+        {% endif %} {% endif %} {% endfor %} </div>
+    </section>
+
+    <!-- <div id="tabbed" class="services-section section-padding30 fix">
+        <div class="row">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %} style="text-align: center;">{{ message
+                    }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <div class="cell w-100">
+    <div class="title large">Projects</div>
+    <hr style="background-color:#FF9F67;text-align:center;margin:5px;">
+    </div>
+    </div>
+    {% if success %}
+    <div class="title normal">We'll be back with more projects soon!</div>
+    {% else %}
+    {% for p in allprojects %}
+    {% if p.display %}
+    {% if p.deadline >= date %}
+    <div class="row" id="proj{{ p.id }}">
+        <div class="cell w-100">
+            <div class="collapsible" onclick="">
+                <button class="drop-tile" style="cursor:pointer;">
+                    <span class="lft">{{p.project_name}}</span><span class="mid">{{p.university}}</span><span
+                        class="rgt">{{p.deadline}}</span>
+                </button>
+                <button class="bookmark {% if p in bookmarks %}active{% endif %}" id="book{{ p.id }}"
+                    style="cursor:pointer"></button>
+            </div>
+            <div class="content">
+                <div style="overflow: auto;">
+                    <p style="padding-top: 20px; margin-top:20px; margin-bottom: 0;">
+                        <span class="title small">Project Details</span><br>
+                        <br>
+                        {{p.project_detail|linebreaks}}
+                        {% if not selected %}
+                        {% if p.reason is None %}
+                    <div class="button">
+                        <button type="button" class="btn btn-primary btn-lg myBtn" data-toggle="modal"
+                            data-target="#myModal{{p.id}}">
+                            Apply
+                        </button>
+                    </div>
+                    {% else %}
+                    <p style="text-align: center; color: red">{{p.reason}}</p>
+                    {% endif %}
+                    <div class="modal fade" id="myModal{{p.id}}" tabindex="-1" role="dialog"
+                        aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <form action="{% url 'ftp:apply_project' project_id=p.id %}" method="POST"
+                                    enctype="multipart/form-data" id="modal-form"
+                                    onsubmit="if(!confirm('Are you sure you want to submit? You cannot change the details later.')){return false;}">
+                                    {% csrf_token %}
+                                    <div class="modal-header">
+                                        <div class="modal-title">
+                                            <h2 id="myModalLabel" style="margin-bottom: 10px;">{{p.project_name}}
+                                            </h2>
+                                            <h3>{{p.university}}</h3>
+                                        </div>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true" style="font-size: 20px;">&times;</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="modal-split">
+                                            <span style="color: red; font-weight: 800;">Deadline:
+                                            </span>{{p.deadline}}<br><br>
+                                            <div style="font-size: 20px; margin-bottom: 10px; font-weight: 700;">
+                                                Project Details:</div>
+                                            {{p.project_detail|linebreaks}}
+                                            <p><strong>Project Duration: </strong>{{p.project_time}}</p>
+                                            <p><strong>Prerequisite: </strong>{{p.prerequisite}}</p>
+                                            <p><strong>Stipend: </strong>{{p.stipend}}</p>
+                                        </div>
+
+                                        {% if p.special %}
+                                        <div class="modal-split">
+                                            <div style="font-size: 20px; margin-bottom: 10px; font-weight: 700;">
+                                                Fill the following:</div>
+                                            <div style="text-align: center;">A brief essay indicating your interest
+                                                in the research project and your relevant background (500 words):
+                                            </div>
+                                            <textarea id="Loi" class="form-control" required rows="12"
+                                                style="margin-top: 0px; margin-bottom: 0px; height: 232px; border-radius: 0.5rem; border: 1px solid #d1d3e2;"></textarea><br>
+                                        </div>
+                                        {% endif %}
+
+                                        <div class="modal-split">
+                                            <div style="font-size: 20px; margin-bottom: 10px; font-weight: 700;">
+                                                Fill the following:</div>
+
+                                            <div style="text-align: center;">A statement of the importance of the
+                                                proposed research to your future (250 words):</div>
+                                            <textarea name="sop" class="form-control" required rows="8"
+                                                style="margin-top: 0px; margin-bottom: 0px; height: 232px; border-radius: 0.5rem; border: 1px solid #d1d3e2;"></textarea><br>
+                                            {% if p.multi_domain %}
+                                            <div style="text-align: center; padding: 20px;">
+                                                Select Project Domain Pref. 1<br>
+                                                <select name="proj_domain1" class="form-group" style="margin-bottom:0">
+                                                    {% for domain in proj_domains %}
+                                                    {% if domain.project == p %}
+                                                    <option style="text-align: center" value="{{ domain.name }}">{{
+                                                        domain.name }}
+                                                    </option>
+                                                    {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            <div style="text-align: center; padding: 20px;">
+                                                Select Project Domain Pref. 2<br>
+                                                <select name="proj_domain2" class="form-group" style="margin-bottom:0">
+                                                    {% for domain in proj_domains %}
+                                                    {% if domain.project == p %}
+                                                    <option style="text-align: center" value="{{ domain.name }}">{{
+                                                        domain.name }}
+                                                    </option>
+                                                    {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            <div style="text-align: center; padding: 20px;">
+                                                Select Project Domain Pref. 3<br>
+                                                <select name="proj_domain3" class="form-group" style="margin-bottom:0">
+                                                    {% for domain in proj_domains %}
+                                                    {% if domain.project == p %}
+                                                    <option style="text-align: center" value="{{ domain.name }}">{{
+                                                        domain.name }}
+                                                    </option>
+                                                    {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            {% endif %}
+                                            <div style="text-align: center;">Apply with a different CV (optional):
+                                            </div>
+                                            <input allign="middle" type="file" class="form-control-file" name="ncv"
+                                                accept=".pdf">
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <p style="text-align: center; color: red">You have already been selected for a Project.</p>
+                    {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    <div class="row" style="margin-top: 50px;">
+        <div class="cell w-100">
+            <div class="title large">Past Projects</div>
+        </div>
+    </div>
+    {% for pproj in pastproject %}
+    {% if pproj.display %}
+    {% if pproj.deadline < date %} <div class="row" id="proj{{ p.id }}">
+        <div class="cell w-100">
+            <div class="collapsible">
+                <button class="drop-tile" style="cursor:pointer; flex: 0 0 100%; padding-right: 20px;">
+                    <span class="lft">{{pproj.project_name}}</span><span class="mid">{{pproj.university}}</span><span
+                        class="rgt">{{pproj.deadline}}</span>
+                </button>
+            </div>
+            <div class="content">
+                <div style="overflow: auto">
+                    <p style="padding-top: 20px; margin-top:20px; margin-bottom: 0;">
+                        <span class="title small">Project Details</span><br>
+                        <br>
+                        {{pproj.project_detail|linebreaks}}
+                    <p><strong>Project Duration: </strong>{{pproj.project_time}}</p>
+                    <p><strong>Prerequisite: </strong>{{pproj.prerequisite}}</p>
+                    <p><strong>Stipend: </strong>{{pproj.stipend}}</p>
+                    <p style="text-align: center; color: red; margin-bottom: 40px;">Applications Closed.</p>
+                    </p>
+                </div>
+            </div>
+        </div>
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+        </div> -->
+    <!-- Want To work End -->
+</main>
+{% endblock %}
+{% block js %}
+<!-- <script>
+    var coll = document.getElementsByClassName("drop-tile");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.parentElement.classList.toggle("active");
+            var content = this.parentElement.nextElementSibling;
+
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            }
+            else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+
+            for (i = 0; i < coll.length; i++) {
+                some = coll[i].previousSibling.previousElementSibling;
+                if (some != this) {
+                    some.parentElement.classList.remove('active');
+                    var content = some.parentElement.nextElementSibling;
+                    content.style.maxHeight = null;
+                }
+                else {
+                    console.log('This is it');
+                }
+            }
+        });
+    }
+</script> -->
+<!-- <script>
+    var coll = document.getElementsByClassName("bookmark");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+        });
+    }
+
+</script> -->
+<script>
+    $('#notbut').trigger('click');
+    $('.bookmark').click(function () {
+        var id = this.id;
+        var pid = id.slice(4,);
+        $.ajax({
+            type: "GET",
+            url: "{% url 'ftp:add_favorite' %}",
+            data: {
+                'pid': pid,
+            },
+            dataType: 'json',
+            success: function (data) {
+                if (data.fb) {
+                    var ele = document.getElementById("book" + pid);
+                    if (ele.classList.contains("fas")) {
+                        $("#book" + pid).removeClass("fas").addClass("far");
+                    } else {
+                        $("#book" + pid).addClass("fas").removeClass("far");
+                    }
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}

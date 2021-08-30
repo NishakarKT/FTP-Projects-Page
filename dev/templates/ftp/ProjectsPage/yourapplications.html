@@ -1,0 +1,224 @@
+{% extends 'ftp/base.html' %}
+{% load static %}
+
+{% block title %}Applied Projects | FTP | International Relations Cell{% endblock %}
+
+{% block main %}
+<main>
+    <section>
+        <h1>Applied Projects</i></h1>
+        {% if success %}
+        <h2>No Projects Applied</h2>
+        {% else %}
+        {% for p in allprojects %}
+        <div class="section__projects">
+            <div class="section__projectCard [ is-collapsed ]" id="{{p.id}}">
+                <div class="section__projectCardInner">
+                    <i class="{% if p in bookmarks %}fas{% else %}far{% endif %} fa-bookmark bookmark"
+                        id="book{{ p.id }}"></i>
+                    <p class=" section__projectCardTitle">{{p.0.project_name}}</p>
+                    <p class="section__projectCardSecondaryText">{{p.0.university}}</p>
+                    <p class="section__projectCardDetail">{{p.0.project_detail|truncatewords:'10'|slice:'-1'}}...</p>
+                    <hr />
+                    <p class="section__projectCardSubtitle">Deadline: {{p.0.deadline}}</p>
+                    <div class="section__tagsContainer">
+                        <p class="section__tag">Item 1</p>
+                        <p class="section__tag">Item 2</p>
+                        <p class="section__tag">Item 3</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                    </div>
+                    <p class="section__projectCardAction [ js-expander ]">Read more</p>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close [ js-collapser ]"></i>
+                    <h1>Project Details</h1>
+                    <p><b><i class="fas fa-file-signature"></i></i>Name: </b>{{p.0.project_name}}</p>
+                    <p><b><i class="fas fa-university"></i></i>University: </b>{{p.0.university}}</p>
+                    <p><b><i class="fas fa-info-circle"></i>Details: </b>{{p.0.project_detail}}</p>
+                    <p><b><i class="fas fa-calendar-alt"></i></i>Duration: </b>{{p.0.project_time}}</p>
+                    <p><b><i class="fas fa-puzzle-piece"></i>Pre-requisite: </b>{{p.0.prerequisite}}</p>
+                    <p><b><i class="fas fa-dollar-sign"></i>Stipend: </b>{{p.0.stipend}}</p>
+                    {% if p.0.reason is None %}
+                    <!-- Button trigger modal -->
+                    <button>View Application</button>
+                    <!-- <div class="button">
+                        <button type="button" class="btn btn-primary btn-lg myBtn" data-toggle="modal"
+                            data-target="#myModal{{p.0.id}}">
+                            View Application
+                        </button>
+                    </div> -->
+                    {% else %}
+                    <p style="text-align: center; color: red">{{p.0.reason}}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </section>
+
+    <div id="tabbed" class="services-section section-padding30 fix">
+        <div class="row">
+            <div class="cell w-100">
+                <!-- Large title -->
+                <div class="title large">Applied Projects</div>
+                <hr style="background-color:#FF9F67;text-align:center;margin:5px;">
+            </div>
+        </div>
+        {% if success %}
+        <div class="title normal">No Projects Applied</div>
+        {% else %}
+        {% for p in allprojects %}
+        <div class="row">
+            <div class="cell w-100">
+                <div class="collapsible">
+                    <button class="drop-tile">
+                        <span class="lft">{{p.0.project_name}}</span><span class="mid">{{p.0.university}}</span><span
+                            class="rgt">{{p.0.deadline}}</span>
+                    </button>
+                    <button class="bookmark {% if p.0 in bookmarks %}active{% endif %}" id="book{{ p.0.id }}"
+                        style="cursor:pointer"></button>
+                </div>
+                <div class="content">
+                    <div style="overflow: auto;">
+                        <p style="padding-top: 20px; margin-top:20px; margin-bottom: 0;">
+                            <span class="title small">Project Details</span><br>
+                            <br>
+                            {{p.0.project_detail|linebreaks}}
+                            {% if p.0.reason is None %}
+                            <!-- Button trigger modal -->
+                        <div class="button">
+                            <button type="button" class="btn btn-primary btn-lg myBtn" data-toggle="modal"
+                                data-target="#myModal{{p.0.id}}">
+                                View Application
+                            </button>
+                        </div>
+                        {% else %}
+                        <p style="text-align: center; color: red">{{p.0.reason}}</p>
+                        {% endif %}
+
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal{{p.0.id}}" tabindex="-1" role="dialog"
+                            aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <div class="modal-title">
+                                            <h2 id="myModalLabel" style="margin-bottom: 10px;">{{p.0.project_name}}</h2>
+                                            <h3>{{p.0.university}}</h3>
+                                        </div>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true" style="font-size: 20px;">&times;</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="modal-split">
+                                            <div style="font-size: 20px; margin-bottom: 10px; font-weight: 700;">Your
+                                                Application:</div>
+
+                                            <div style="text-align: center; font-weight: bold;">SOP:</div>
+                                            <div style="text-align: center;">{{ p.1|linebreaks }}</div>
+                                            {% if p.0.multi_domain %}
+                                            <div style="text-align: center; font-weight: bold; padding-bottom: 5px;">
+                                                Project Domain Pref. 1:</div>
+                                            <div style="text-align: center; margin-bottom: 1.5rem;">{{ p.3 }}</div>
+                                            <div style="text-align: center; font-weight: bold; padding-bottom: 5px;">
+                                                Project Domain Pref. 2:</div>
+                                            <div style="text-align: center; margin-bottom: 1.5rem;">{{ p.4 }}</div>
+                                            <div style="text-align: center; font-weight: bold; padding-bottom: 5px;">
+                                                Project Domain Pref. 3:</div>
+                                            <div style="text-align: center; margin-bottom: 1.5rem;">{{ p.5 }}</div>
+                                            {% endif %}
+                                            <div class="form-group" style="text-align: center;">
+                                                {% if p.2 %}
+                                                <label for="ncv"
+                                                    style="font-weight: bold; font-size: 1rem; text-align: center;">Your
+                                                    CV for this project: Different</label><br>
+                                                <a href="{{ MEDIA_URL }}{{ p.2 }}" target="_blank">Click here to view
+                                                    CV</a>
+                                                {% else %}
+                                                <label for="ncv"
+                                                    style="font-weight: bold; font-size: 1rem; text-align: center;">Your
+                                                    CV for this project: Default</label><br>
+                                                <a href="{{ MEDIA_URL }}{{ prof.cv }}" target="_blank">Click here to
+                                                    view CV</a>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <!-- Want To work End -->
+</main>
+{% endblock %}
+{% block js %}
+<script>
+    var coll = document.getElementsByClassName("drop-tile");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.parentElement.classList.toggle("active");
+            var content = this.parentElement.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+</script>
+<script>
+    var coll = document.getElementsByClassName("bookmark");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+        });
+    }
+</script>
+<script>
+    // $('#notbut').trigger('click');
+    $('.bookmark').click(function () {
+        var id = this.id;
+        var pid = id.slice(4,);
+        $.ajax({
+            type: "GET",
+            url: "{% url 'ftp:add_favorite' %}",
+            data: {
+                'pid': pid,
+            },
+            dataType: 'json',
+            success: function (data) {
+                if (data.fb) {
+                    var ele = document.getElementById("book" + pid);
+                    if (ele.classList.contains("active")) {
+                        $("#i" + pid).removeClass("active");
+                    } else {
+                        $("#i" + pid).addClass("active");
+                    }
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}

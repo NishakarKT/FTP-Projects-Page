@@ -1,0 +1,102 @@
+{% extends 'ftp/base.html' %}
+{% load static %}
+
+{% block title %}Results | FTP | International Relations Cell{% endblock %}
+
+{% block main %}
+<main>
+    <section>
+        <h1>Results</i></h1>
+        <div class="section__projects">
+            {% for foo in result %}
+            {% if foo.project %}
+            <div class="section__projectCard [ is-collapsed ]" id="{{p.id}}">
+                <div class="section__projectCardInner">
+                    <p class=" section__projectCardTitle">{{foo.project.project_name}}</p>
+                    <p class="section__projectCardSecondaryText">{{foo.project.university}}</p>
+                    <p class="section__projectCardDetail">
+                        {{foo.project.project_detail|truncatewords:'10'|slice:'-1'}}...</p>
+                    <hr />
+                    <p class="section__projectCardSubtitle">Deadline: {{foo.project.deadline}}</p>
+                    <div class="section__tagsContainer">
+                        <p class="section__tag">Item 1</p>
+                        <p class="section__tag">Item 2</p>
+                        <p class="section__tag">Item 3</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                        <p class="section__tag">Item 4</p>
+                    </div>
+                    <p class="section__projectCardAction [ js-expander ]">Read more</p>
+                </div>
+                <div class="section__projectDetails">
+                    <i class="fa fa-close [ js-collapser ]"></i>
+                    <h1>Results</h1>
+                    <p><b><i class="fas fa-file-signature"></i></i>Name: </b>{{foo.project.project_name}}</p>
+                    <p><b><i class="fas fa-university"></i></i>University: </b>{{foo.project.university}}</p>
+                    <p><b><i class="fas fa-poll"></i>Selected Applicants: </b></p>
+                    {% for profile in foo.result.all %}
+                    <p><b>{{forloop.counter}}. {{profile.rollno}}</b> - {{profile.fullname}}</p>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+
+    <!--? Services Area Start -->
+    <!--? Services Area Start -->
+    <!-- <div id="tabbed" class="services-section section-padding30 fix">
+        <div class="row">
+            <div class="cell w-100">
+                <div class="title large">Results</div>
+                <hr style="background-color:#FF9F67;text-align:center;margin:5px;">
+            </div>
+        </div>
+        {% for foo in result %}
+        {% if foo.project %}
+        <div class="row" id="proj{{ p.id }}">
+            <div class="cell w-100">
+                <div class="collapsible">
+                    <button class="drop-tile" style="cursor:pointer; flex: 0 0 100%; padding-right: 20px;">
+                        <span class="lft" style="flex: 0 0 50%; text-align:right; padding-right:20px;">{{
+                            foo.project.project_name }}</span>
+                        <div class="mobile-d-none">|</div><span class="rgt"
+                            style="flex: 0 0 50%; text-align:left; padding-left: 20px;"> {{ foo.project.university
+                            }}</span>
+                    </button>
+                </div>
+                <div class="content">
+                    {% for profile in foo.result.all %}
+                    <p style="padding: 20px; margin-bottom: 0;">
+                        <span style="font-size: 20px;">{{ profile.fullname }} - {{ profile.rollno }}</span><br>
+                    </p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div> -->
+    <!-- Want To work End -->
+</main>
+{% endblock %}
+{% block js %}
+<!-- <script>
+    var coll = document.getElementsByClassName("drop-tile");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.parentElement.classList.toggle("active");
+            var content = this.parentElement.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+</script> -->
+{% endblock %}
